@@ -2,9 +2,18 @@
 #include "MatamStory.h"
 
 #include "Utilities.h"
+#include "string"
+#include <vector>
+
+
 
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
-
+    try{
+        string line;
+        while(getline(eventsStream, line)){
+            events.push_back(event(line));
+        }
+    }
     /*===== TODO: Open and read events file =====*/
 
     /*==========================================*/
