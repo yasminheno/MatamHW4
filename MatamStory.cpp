@@ -8,11 +8,32 @@
 
 
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
-    try{
-        string line;
+   /* try{
+        string line, name;
+        Job job; int i; int count = 0; string word; Character character;
+        while(getline(playersStream, line) ){
+            i = 0;
+            count = 0;
+            while (count < 3) {
+                count++;
+                while (i < line.length() && line[i] != ' ') {
+                    word += line[i];
+                    i++;
+                }
+                switch (count) {
+                    case 1:
+                        name = word;
+                        break;
+                    case 2:
+                        job = word;
+                        break;
+                    case 3:
+                        Character = word;
+                        break;*/
+       /* string line;
         while(getline(eventsStream, line)){
             events.push_back(event(line));
-        }
+        }*/
     }
     /*===== TODO: Open and read events file =====*/
 

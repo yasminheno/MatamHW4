@@ -5,7 +5,7 @@
 
 class Event {
 public:
-
+    Event(string event_name, string description = "");
     /**
      * Gets the description of the event
      *
@@ -14,6 +14,7 @@ public:
     string getDescription() const;
 
 private:
+    string event_name;
     string description;
 
 
