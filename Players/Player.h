@@ -3,26 +3,69 @@
 
 #include <string>
 #include "Job.h"
-
-
 using std::string;
+#include <memory>
+using std::unique_ptr;
+
 class Character{
 
 };
 
-class Responsible : Character{
+class Responsible : public Character{
 
 };
 
-class Risktaking : Character{
+class Risktaking : public Character{
+
+};
+
+class Job{
+
+public:
+    Job();
+};
+
+class Warrior : Job{
+public:
+    Warrior();
+
+};
+
+class Archer : Job{
+public:
+    Archer();
+
+
+};
+
+class Magician : Job{
+public:
+    Magician();
 
 };
 
 
 class Player {
+protected:
+   const  string name;
+   int level;
+   int force;
+   int current_HP;
+   int max_HP;
+   int coins;
+   unique_ptr<Character> character;
+   unique_ptr<Job> job;
+
 public:
-    Player(string name, int level, int force, int current_HP, int Max_HP, int coins
-           , string description, int power, Character character);
+    Player(const string& name, int level, int force, int current_HP, int max_HP, int coins
+           , Character* character ,Job*  job); //character(std::move(character))
+    ~Player();
+
+    void setCharachter(Character* character);
+
+    void setJob(Job* job);
+
+
 
     /**
      * Gets the description of the player
@@ -65,46 +108,7 @@ public:
      * @return - coins of the player
     */
     int getCoins() const;
-
-private:
-    string name;
-    int level;
-    int force;
-    int current_HP;
-    int coins;
-    string description;
-    int max_HP;
-    int power;
-    Character character;
 };
 
-class Job : Player{
-
-public:
-    Job() {
-
-    }
-};
-
-class Warrior : Job{
-public:
-    Warrior(string name, int level, int force, int current_HP, int Max_HP, int coins
-            , string description,  int power);
-
-};
-
-class Archer : Job{
-public:
-    Archer(string name, int level, int force, int current_HP, int Max_HP, int coins
-            , string description,  int power);
-
-};
-
-class Magician : Job{
-public:
-    Magician(string name, int level, int force, int current_HP, int Max_HP, int coins
-            , string description,  int power);
-
-};
 
 

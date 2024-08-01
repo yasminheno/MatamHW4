@@ -1,29 +1,87 @@
 #pragma once
 #include <vector>
+#include <memory>
+#include <string>
 using std::vector;
+using std::shared_ptr;
+using std::unique_ptr;
+using std::string;
 
 
 class Monster{
+protected:
+    const string name;
+    int combatPower;
+    int loot;
+    int damage;
 public:
-    Monster(const int combatPower,const int loot, int damage);
+    Monster(const string& name, int combatPower ,int loot ,int damage);
+    virtual const string getName() const;
+    virtual int getCombatPower() const;
+    virtual int getLoot() const;
+    virtual int getDamage() const;
+
+    virtual void setCombatPower(int combat_power);
+    virtual void setLoot(int loot);
+    virtual void setDamage(int damage);
+
+    virtual ~Monster();
 
 };
 
-class Snail: Monster{
+class Snail: public Monster{
 public:
-    Snail(const int combatPower = 5,const int loot = 2, const int damage = 10);
+    Snail();
+    ~Snail();
+
+     const string getName() const override;
+     int getCombatPower() const override;
+     int getLoot() const override;
+     int getDamage() const override;
+
+
 };
 
-class Slime : Monster{
-    Slime(const int combatPower = 12,const int loot = 5, const int damage = 25);
+class Slime : public Monster{
+    Slime();
+    ~Slime();
+
+    const string getName() const override;
+    int getCombatPower() const override;
+    int getLoot() const override;
+    int getDamage() const override;
 };
 
-class Balrog : Monster{
-    Balrog(const int combatPower = 15,const int loot = 100, int damage = 9001);
+class Balrog : public Monster{
+    Balrog();
+    ~Balrog();
+
+    const string getName() const override;
+    int getCombatPower() const override;
+    int getLoot() const override;
+    int getDamage() const override;
 };
-class Pack : Monster{
+
+
+class Pack : public Monster{
+private:
+    vector<unique_ptr<Monster>> members;
+
 public:
-    int num_of_monsters;
-    vector<Monster> pack_monster;
-    Pack(int combatPower, int loot, int damage);
+    Pack();
+    ~Pack() override;
+    void addMember(const Monster& monster);
+    size_t getSize();
+
+    const string getName() const override;
+    int getCombatPower() const override;
+    int getLoot() const override;
+    int getDamage() const override;
+
+    void setCombatPower(int combat_power) override;
+    void setLoot(int loot) override;
+    void setDamage(int damage) override;
+
 };
+
+

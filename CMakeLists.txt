@@ -15,7 +15,5 @@ add_executable(MatamHW4
         MatamStory.h
         Utilities.cpp
         Utilities.h
-        Events/Encounter.h
-        Events/SpecialEvent.h
         Monsters/Monster.h
         Players/Job.h)
