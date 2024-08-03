@@ -70,6 +70,20 @@ build CMakeFiles/MatamHW4.dir/Utilities.cpp.obj: CXX_COMPILER__MatamHW4_unscanne
   OBJECT_DIR = CMakeFiles\MatamHW4.dir
   OBJECT_FILE_DIR = CMakeFiles\MatamHW4.dir
 
+build CMakeFiles/MatamHW4.dir/Players/Player.cpp.obj: CXX_COMPILER__MatamHW4_unscanned_Debug C$:/Users/nadam/OneDrive/Desktop/HW4/MatamHW4/Players/Player.cpp || cmake_object_order_depends_target_MatamHW4
+  DEP_FILE = CMakeFiles\MatamHW4.dir\Players\Player.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/nadam/OneDrive/Desktop/HW4/MatamHW4/. -IC:/Users/nadam/OneDrive/Desktop/HW4/MatamHW4/Events -IC:/Users/nadam/OneDrive/Desktop/HW4/MatamHW4/Players
+  OBJECT_DIR = CMakeFiles\MatamHW4.dir
+  OBJECT_FILE_DIR = CMakeFiles\MatamHW4.dir\Players
+
+build CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.obj: CXX_COMPILER__MatamHW4_unscanned_Debug C$:/Users/nadam/OneDrive/Desktop/HW4/MatamHW4/Monsters/Monster.cpp || cmake_object_order_depends_target_MatamHW4
+  DEP_FILE = CMakeFiles\MatamHW4.dir\Monsters\Monster.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/nadam/OneDrive/Desktop/HW4/MatamHW4/. -IC:/Users/nadam/OneDrive/Desktop/HW4/MatamHW4/Events -IC:/Users/nadam/OneDrive/Desktop/HW4/MatamHW4/Players
+  OBJECT_DIR = CMakeFiles\MatamHW4.dir
+  OBJECT_FILE_DIR = CMakeFiles\MatamHW4.dir\Monsters
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target MatamHW4
@@ -78,7 +92,7 @@ build CMakeFiles/MatamHW4.dir/Utilities.cpp.obj: CXX_COMPILER__MatamHW4_unscanne
 #############################################
 # Link the executable MatamHW4.exe
 
-build MatamHW4.exe: CXX_EXECUTABLE_LINKER__MatamHW4_Debug CMakeFiles/MatamHW4.dir/main.cpp.obj CMakeFiles/MatamHW4.dir/MatamStory.cpp.obj CMakeFiles/MatamHW4.dir/Utilities.cpp.obj
+build MatamHW4.exe: CXX_EXECUTABLE_LINKER__MatamHW4_Debug CMakeFiles/MatamHW4.dir/main.cpp.obj CMakeFiles/MatamHW4.dir/MatamStory.cpp.obj CMakeFiles/MatamHW4.dir/Utilities.cpp.obj CMakeFiles/MatamHW4.dir/Players/Player.cpp.obj CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\MatamHW4.dir

@@ -16,4 +16,7 @@ add_executable(MatamHW4
         Utilities.cpp
         Utilities.h
         Monsters/Monster.h
-        Players/Job.h)
+        Players/Job.h
+        Players/Player.cpp
+        Monsters/Monster.cpp
+        Monsters/Monster.cpp)
