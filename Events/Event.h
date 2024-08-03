@@ -12,7 +12,7 @@ public:
      *
      * @return - the description of the event
     */
-    string getDescription() const;
+    virtual string getDescription() const;
 
 protected:
     string event_name;
@@ -24,7 +24,8 @@ protected:
 class SpecialEvent: public Event {
 public:
     SpecialEvent();
-    
+    string getDescription() const override;
+
 };
 
 class Encounter: public Event {
@@ -32,15 +33,18 @@ private:
     unique_ptr<Monster> monster;
 public:
     Encounter(Monster* monster);
+    string getDescription() const override;
 
 };
 
 
 class SolarEclipse : public SpecialEvent {
 public:
+    string getDescription() const override;
 };
 
 
 class PotionsMerchant : public SpecialEvent {
 public:
+    string getDescription() const override;
 };

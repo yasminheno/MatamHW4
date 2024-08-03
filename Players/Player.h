@@ -23,17 +23,20 @@ class Job{
 
 public:
     Job();
+    virtual string getDescription() const;
 };
 
 class Warrior : Job{
 public:
     Warrior();
+    string getDescription() const override;
 
 };
 
 class Archer : Job{
 public:
     Archer();
+    string getDescription() const override;
 
 
 };
@@ -41,6 +44,7 @@ public:
 class Magician : Job{
 public:
     Magician();
+    string getDescription() const override;
 
 };
 
@@ -72,7 +76,7 @@ public:
      *
      * @return - description of the player
     */
-    string getDescription() const;
+   string getDescription() const;
 
     /**
      * Gets the name of the player

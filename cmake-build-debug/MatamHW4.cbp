@@ -90,13 +90,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Events/Encounter.h">
-			<Option target="MatamHW4"/>
-		</Unit>
 		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Events/Event.h">
-			<Option target="MatamHW4"/>
-		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Events/SpecialEvent.h">
 			<Option target="MatamHW4"/>
 		</Unit>
 		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/MatamStory.cpp">
