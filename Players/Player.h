@@ -7,7 +7,12 @@
 using std::string;
 #include <memory>
 using std::unique_ptr;
-
+const int INITIAL_LEVEL = 1;
+const int INITIAL_COINS = 10;
+const int INITIAL_FORCE = 5;
+const int INITIAL_MAXHP = 100;
+const int MAX_LEVEL = 10;
+const int MIN_FORCE = 0;
 
 class Player {
 protected:
@@ -18,20 +23,24 @@ protected:
    int max_HP;
    int coins;
    unique_ptr<Character> character;
-   unique_ptr<Job> job;
+
+
+
+
+
 
 public:
-    Player(const string& name, int level, int force, int current_HP, int max_HP, int coins,
-           Character* character, Job* job);
-
-    ~Player() = default;
+    explicit Player(const string &name);
+    Player(const string& name,const int& level,const int& force,const
+    int& current_HP,const int& max_HP,const int& coins);
+    virtual ~Player() = default;
+    Player(const Player &other) = default;
+    virtual Player* clone() const = 0;
+    Player &operator=(const Player &other) = default;
 
     void setCharachter(Character* character);
 
-    void setJob(Job* job);
-
-
-   string getDescription() const;
+    string getDescription() const;
 
     string getName() const;
 
@@ -44,6 +53,10 @@ public:
     int getCoins() const;
 
 };
+
+
+
+
 
 
 

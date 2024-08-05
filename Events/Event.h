@@ -3,6 +3,8 @@
 #include "Monsters/Monster.h"
 #include "../Players/Player.h"
 #include <memory>
+#include "string"
+using std::string;
 
 class Event {
 public:
@@ -10,7 +12,7 @@ public:
     /**
      * Gets the description of the event
      *
-     * @return - the description of the e
+     * @return - the description of the event
     */
     virtual string getDescription() const;
 
@@ -20,6 +22,10 @@ protected:
 
 
 };
+
+string Event::getDescription() const {
+    return this->description();
+}
 
 class SpecialEvent: public Event {
 public:

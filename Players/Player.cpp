@@ -7,15 +7,18 @@
 #include <utility>
 #include <vector>
 
-Player :: Player(const string& name, int level, int force, int current_HP, int max_HP, int coins,
-       Character* character, Job* job)
-        : name(name), level(level), force(force), current_HP(current_HP), max_HP(max_HP), coins(coins),
-          character(character), job(job) {}//character(std::move(character))
+Player::Player(const string &name) : name(name), level(INITIAL_LEVEL), force(INITIAL_FORCE)
+        ,current_HP(INITIAL_MAXHP),max_HP(INITIAL_MAXHP),coins(INITIAL_COINS){}
+
+
+Player::Player(const string &name,const int &level,const int &force,const int &current_HP,
+               const int &max_HP,const int &coins):
+        name(name), level(level), force(force), current_HP(current_HP), max_HP(max_HP), coins(coins) {}
 
 string Player:: getDescription() const{
-    string os = this->getName() << ", " << this->job->getDescription() << "with"
-            << this->character->getDescription() << "character (level" <<
-            this->level << " ,force" << this->force << ")";
+    string os = this->getName() + ", " + this->job->getDescription() + "with"
+            + this->character->getDescription() + "character (level" +
+            this->level + " ,force" + this->force + ")";
     return os;
 }
 
