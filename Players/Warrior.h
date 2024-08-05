@@ -7,7 +7,7 @@ class Warrior : public Player{
 
 
 public:
-    Warrior();
+
     string getDescription() const override;
     explicit Warrior(const string &name, unique_ptr<Character> character);
     Warrior(const string& name,const int& level,const int& force,
@@ -17,4 +17,6 @@ public:
     Warrior &operator=(const Warrior &warrior) = default;
     ~Warrior() override = default;
     Player* clone() const override;
+    string getJob() const override;
 };
+

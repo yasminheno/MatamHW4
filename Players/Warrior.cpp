@@ -22,3 +22,7 @@ string Warrior::getDescription() const {
         << " character (level " << level << ", force " << force << ")";
     return os.str();
 }
+
+string Warrior::getJob() const {
+    return "Warrior";
+}

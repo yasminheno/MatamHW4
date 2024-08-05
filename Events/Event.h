@@ -16,6 +16,7 @@ public:
     */
     virtual string getDescription() const = 0;
     virtual ~Event() = default;
+    virtual void applyEvent(Player &player) const = 0;
 
 protected:
     string event_name;
@@ -33,12 +34,14 @@ public:
 class SolarEclipse : public SpecialEvent {
 public:
     string getDescription() const override;
+    void applyEvent(Player& player) const override;
 };
 
 
 class PotionsMerchant : public SpecialEvent {
 public:
     string getDescription() const override;
+    void applyEvent(Player& player) const override;
 };
 
 ///////////////////////////////////////////////////////////////////////////
@@ -49,6 +52,7 @@ private:
 public:
     explicit Encounter(unique_ptr<Monster> monster);
     string getDescription() const override;
+    void applyEvent(Player& player) const override;
 
 };
 

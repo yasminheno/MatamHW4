@@ -12,4 +12,5 @@ public:
     Magician &operator=(const Magician &magician) = default;
     ~Magician() override = default;
     Player* clone() const override;
+    string getJob() const override;
 };

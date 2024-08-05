@@ -45,9 +45,32 @@ public:
     virtual int getForce() const;
     virtual int getHealthPoints() const;
     virtual int getCoins() const;
+    string getCharacter() const;
+    int getCurrentHP() const;
+    virtual int getMaxHP() const;
+
+    virtual int setForce(const int& force);
+    virtual void setCurrentHP(const int& hp);
+
+
+    //additional helping functions
+
+    /* checks if player can pay a certain amount if so it takes the coins and return
+     true otherwise it returns false */
+    bool canPlayerPay(int coins);
+
+    /* checks if player's health points can be raised without exceeding max_hp */
+    bool check_adding_HP(int hp);
+
+    void levelUp(); // adds one level if it exceed 10 it stays 10;
 
     virtual int getCombatPower();
 
+    void addCoins(int coins);
+
+    void decreaseCoins(int coins);
+
+    virtual string getJob() const = 0;
 
 };
 

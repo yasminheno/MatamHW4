@@ -16,6 +16,9 @@ public:
     Archer &operator=(const Archer &warrior) = default;
     ~Archer() override = default;
     Player* clone() const override;
+    string getJob() const override;
 };
 
-
+string Archer::getJob() const {
+    return "Archer";
+}

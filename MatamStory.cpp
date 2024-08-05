@@ -12,15 +12,15 @@
 
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
     try {
-        string line, name, word, character, job;
+        string name, word, character, job;
         int count = 0;
         while (playersStream >> name >> job >> character) {
             if (character == "Responsible") {
                 unique_ptr<Character> player_character = std::make_unique<Responsible>();
-                createplayer(std::move(player_character), name, job);
+                createPlayer(std::move(player_character), name, job);
             } else if (character == "RiskTaking") {
                 unique_ptr<Character> player_character = std::make_unique<Responsible>();
-                createplayer(std::move(player_character), name, job);
+                createPlayer(std::move(player_character), name, job);
             } else {
                 throw std::runtime_error("Invalid character type");
             }
@@ -34,16 +34,23 @@ MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) 
             return;
         }
 
-    } catch (const std::exception& e) {
+    } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
-    /*===== TODO: Open and read events file =====*/
-    /*===== TODO: Open and Read players file =====*/
 
-
+    }
     this->m_turnIndex = 1;
 }
 
+
 void MatamStory::playTurn(Player& player) {
+
+    Event* event = events[m_turnIndex + 1].get();
+    printTurnDetails(m_turnIndex + 1,player,*event);
+    event->applyEvent(player);
+    std::string outcome = event->getDescription();
+
+
+
 
     /**
      * Steps to implement (there may be more, depending on your design):
@@ -97,19 +104,17 @@ void MatamStory::play() {
 
     /*========================================================================*/
 }
-}
 
-void MatamStory::createplayer(unique_ptr<Character> character, const string& name, string& job) {
-    std::vector<std::unique_ptr<Player>> game_players;
+
+void MatamStory::createPlayer(unique_ptr<Character> character, const string& name, string& job) {
     if (job == "Warrior") {
-        game_players.push_back(std::make_unique<Warrior>(name, std::move(character)));
+       players.push_back(std::make_unique<Warrior>(name, std::move(character)));
     } else if (job == "Magician") {
-        game_players.push_back(std::make_unique<Magician>(name, std::move(character)));
+        players.push_back(std::make_unique<Magician>(name, std::move(character)));
     } else if (job == "Archer") {
-        game_players.push_back(std::make_unique<Archer>(name, std::move(character)));
+        players.push_back(std::make_unique<Archer>(name, std::move(character)));
     } else {
         throw std::runtime_error("Invalid job type");
     }
 }
 
-}

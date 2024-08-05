@@ -65,7 +65,62 @@ int Player::getCombatPower() {
     return this->force + this->level;
 }
 
+int Player::setForce(const int &force) {
+    this->force = force;
+}
 
+string Player::getCharacter() const {
+    return this->character->getDescription();
+}
+
+int Player::getCurrentHP() const {
+    return this->current_HP;
+}
+
+int Player::getMaxHP() const {
+    return this->max_HP;
+}
+
+bool Player::canPlayerPay(int coins) {
+    if(this->coins - coins < 0)
+    {
+        return false;
+    }
+
+    return true;
+}
+
+bool Player::check_adding_HP(int hp) {
+    if(this->current_HP + hp > this->max_HP) {
+        return false;
+    }
+    return true;
+}
+
+void Player::levelUp() {
+    if(this->level + 1 <= 10)
+    {
+        this->level++;
+    }
+}
+
+void Player::addCoins(int coins) {
+   this->coins += coins;
+}
+
+void Player::decreaseCoins(int coins) {
+    if(canPlayerPay(coins))
+    {
+        this->coins -= coins;
+    }
+}
+
+void Player::setCurrentHP(const int &hp) {
+   if(check_adding_HP(hp))
+   {
+       this->current_HP += hp;
+   }
+}
 
 
 

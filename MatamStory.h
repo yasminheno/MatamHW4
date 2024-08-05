@@ -10,8 +10,8 @@
 using std::vector;
 class MatamStory{
 private:
-    vector<Player> players;
-    vector<Event> events;
+    vector<unique_ptr<Player>> players;
+    vector<unique_ptr<Event>> events;
     unsigned int m_turnIndex;
 
     /**
@@ -57,5 +57,5 @@ public:
     void play();
 
 
-    void createplayer(unique_ptr<Character> character, const string &name, string &job);
+    void createPlayer(unique_ptr<Character> character, const string &name, string &job);
 };
