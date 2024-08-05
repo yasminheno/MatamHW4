@@ -2,7 +2,6 @@
 #pragma once
 
 #include <string>
-#include "Job.h"
 #include "Charachter.h"
 using std::string;
 #include <memory>
@@ -33,24 +32,24 @@ public:
     explicit Player(const string &name);
     Player(const string& name,const int& level,const int& force,const
     int& current_HP,const int& max_HP,const int& coins);
+    Player(const Player &other);
     virtual ~Player() = default;
-    Player(const Player &other) = default;
     virtual Player* clone() const = 0;
-    Player &operator=(const Player &other) = default;
+    Player &operator=(const Player &other);
 
     void setCharachter(Character* character);
 
-    string getDescription() const;
+    virtual string getDescription() const = 0;
 
     string getName() const;
 
-    int getLevel() const;
+    virtual int getLevel() const;
 
-    int getForce() const;
+    virtual int getForce() const;
 
-    int getHealthPoints() const;
+    virtual int getHealthPoints() const;
 
-    int getCoins() const;
+    virtual int getCoins() const;
 
 };
 

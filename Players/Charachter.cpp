@@ -1,9 +1,10 @@
+
 #include "Charachter.h"
 
-string Responsible::getDescription() const{
+string Responsible::getDescription() const {
     return "Responsible";
 }
 
-string Risktaking::getDescription() const{
-    return "Risktaking";
+string RiskTaking::getDescription() const {
+    return "RiskTaking";
 }

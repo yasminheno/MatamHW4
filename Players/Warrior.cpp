@@ -1,3 +1,4 @@
+#include <sstream>
 #include "Player.h"
 #include "Warrior.h"
 #include "string"
@@ -13,4 +14,11 @@ int& max_HP,const int& coins) :
 
 Player *Warrior::clone() const {
     return new Warrior(*this);
+}
+
+string Warrior::getDescription() const {
+    std::ostringstream os;
+    os << name << ", " << "Warrior" << " with " << character->getDescription()
+        << " character (level " << level << ", force " << force << ")";
+    return os.str();
 }

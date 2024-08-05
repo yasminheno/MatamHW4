@@ -7,6 +7,7 @@ const int ARCHER_INITIAL_COINS = 20;
 class Archer : public Player{
 
 public:
+    string getDescription() const override;
     explicit Archer(const string &name);
     Archer(const string& name,const int& level,const int& force,
            const int& current_HP,const int& max_HP,const int& coins);

@@ -1,3 +1,4 @@
+#include <sstream>
 #include "Magician.h"
 
 Magician::Magician(const std::string &name) : Player(name){};
@@ -9,5 +10,12 @@ Magician::Magician(const std::string &name, const int &level, const int &force,
 
 Player *Magician::clone() const {
     return new Magician(*this);
+}
+
+string Magician::getDescription() const {
+    std::ostringstream os;
+    os << name << ", " << "Warrior" << " with " << character->getDescription()
+       << " character (level " << level << ", force " << force << ")";
+    return os.str();
 }
 

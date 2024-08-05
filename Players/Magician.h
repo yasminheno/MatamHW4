@@ -3,7 +3,7 @@
 
 class Magician : public Player{
 public:
-public:
+    string getDescription() const override;
     explicit Magician(const string &name);
     Magician(const string& name,const int& level,const int& force,
              const int& current_HP,const int& max_HP,const int& coins);
