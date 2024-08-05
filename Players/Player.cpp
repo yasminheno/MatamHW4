@@ -1,6 +1,8 @@
 #include "Player.h"
 
 #include "Utilities.h"
+#include "Charachter.h"
+#include "Job.h"
 #include "string"
 #include <utility>
 #include <vector>
@@ -37,25 +39,6 @@ int Player :: getCoins() const{
     return this->coins;
 }
 
-string Magician::getDescription() const{
-    return "Magician";
-}
-
-string Archer::getDescription() const{
-    return "Archer";
-}
-
-string Warrior::getDescription() const{
-    return "Warrior";
-}
-
-string Responsible::getDescription() const{
-    return "Responsible";
-}
-
-string Risktaking::getDescription() const{
-    return "Risktaking";
-}
 
 void Player:: setCharachter(Character* character){
     this->character = character; // = should be implemented
@@ -64,3 +47,5 @@ void Player:: setCharachter(Character* character){
 void Player:: setJob(Job* job){
     this->job = job; // = should be implemented
 }
+
+

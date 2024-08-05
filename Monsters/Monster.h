@@ -35,7 +35,6 @@ public:
 class Snail: public Monster{
 public:
     Snail();
-    ~Snail();
     void setCombatPower(int combat_power) override;
     void setLoot(int loot) override;
     void setDamage(int damage) override;
@@ -48,7 +47,6 @@ public:
 
 class Slime : public Monster{
     Slime();
-    ~Slime();
     void setCombatPower(int combat_power) override;
     void setLoot(int loot) override;
     void setDamage(int damage) override;
@@ -60,7 +58,6 @@ class Slime : public Monster{
 
 class Balrog : public Monster{
     Balrog();
-    ~Balrog();
     void setCombatPower(int combat_power) override;
     void setLoot(int loot) override;
     void setDamage(int damage) override;
@@ -78,11 +75,8 @@ private:
 
 public:
     Pack(vector<unique_ptr<Monster>> members);
-    ~Pack() override;
-    void addMember(const unique_ptr<Monster> monster);
+    void addMember(unique_ptr<Monster> monster);
     size_t getSize();
-
-
     void setCombatPower(int combat_power) override;
     void setLoot(int loot) override;
     void setDamage(int damage) override;

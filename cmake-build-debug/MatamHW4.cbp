@@ -99,10 +99,25 @@
 		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/MatamStory.h">
 			<Option target="MatamHW4"/>
 		</Unit>
+		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Monsters/Monster.cpp">
+			<Option target="MatamHW4"/>
+		</Unit>
 		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Monsters/Monster.h">
 			<Option target="MatamHW4"/>
 		</Unit>
+		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Charachter.cpp">
+			<Option target="MatamHW4"/>
+		</Unit>
+		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Charachter.h">
+			<Option target="MatamHW4"/>
+		</Unit>
+		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Job.cpp">
+			<Option target="MatamHW4"/>
+		</Unit>
 		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Job.h">
+			<Option target="MatamHW4"/>
+		</Unit>
+		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Player.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
 		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Player.h">

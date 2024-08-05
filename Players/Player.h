@@ -3,56 +3,10 @@
 
 #include <string>
 #include "Job.h"
+#include "Charachter.h"
 using std::string;
 #include <memory>
 using std::unique_ptr;
-
-class Character{
-public:
-    virtual ~Character() = default;
-    virtual string getDescription() const = 0;
-
-};
-
-class Responsible : public Character{
-public:
-    string getDescription() const override;
-};
-
-class Risktaking : public Character{
-public:
-    string getDescription() const override;
-};
-
-class Job{
-
-public:
-    Job() = default;
-    virtual ~Job() = default;
-    virtual string getDescription() const = 0;
-};
-
-class Warrior : Job{
-public:
-    Warrior();
-    string getDescription() const override;
-
-};
-
-class Archer : Job{
-public:
-    Archer();
-    string getDescription() const override;
-
-
-};
-
-class Magician : Job{
-public:
-    Magician();
-    string getDescription() const override;
-
-};
 
 
 class Player {
@@ -75,6 +29,7 @@ public:
     void setCharachter(Character* character);
 
     void setJob(Job* job);
+
 
    string getDescription() const;
 

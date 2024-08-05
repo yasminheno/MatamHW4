@@ -8,10 +8,14 @@
 
 
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
-   /* try{
+    try {
         string line, name;
-        Job job; int i; int count = 0; string word; Character character;
-        while(getline(playersStream, line) ){
+        Job job;
+        int i;
+        int count = 0;
+        string word;
+        Character character;
+        while (getline(playersStream, line)) {
             i = 0;
             count = 0;
             while (count < 3) {
@@ -29,20 +33,17 @@ MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) 
                         break;
                     case 3:
                         Character = word;
-                        break;*/
-       /* string line;
-        while(getline(eventsStream, line)){
-            events.push_back(event(line));
-        }*/
+                        break;
+                        // string line;
+                        //while(getline(eventsStream, line)){
+                        // events.push_back(event(line));
+
+                }
+            }
+        }
     }
     /*===== TODO: Open and read events file =====*/
-
-    /*==========================================*/
-
-
     /*===== TODO: Open and Read players file =====*/
-
-    /*============================================*/
 
 
     this->m_turnIndex = 1;
@@ -61,7 +62,7 @@ void MatamStory::playTurn(Player& player) {
     m_turnIndex++;
 }
 
-void MatamStory::playRound() {
+void MatamStory::playRound(){
 
     printRoundStart();
 
@@ -101,4 +102,5 @@ void MatamStory::play() {
     /*===== TODO: Print either a "winner" message or "no winner" message =====*/
 
     /*========================================================================*/
+}
 }

@@ -24,6 +24,18 @@ int Monster ::getDamage() const {
     return this->damage;
 }
 
+void Monster::setCombatPower(int combat_power) {
+    this->combatPower = combat_power;
+}
+
+void Monster::setLoot(int loot) {
+     this->loot = loot;
+}
+
+void Monster::setDamage(int damage) {
+    this->damage = damage;
+}
+
 Snail :: Snail() : Monster("Snail", 5, 2, 10){}
 
 void Snail::setCombatPower(int combat_power) {
@@ -49,6 +61,7 @@ int Snail::getLoot()const {
 int Snail::getDamage() const {
     return Monster::getDamage();
 }
+
 
 Balrog ::Balrog() : Monster("Balrog", 15, 100, 9001){}
 
@@ -141,11 +154,11 @@ size_t Pack::getSize() {
     return this->members.size();
 }
 
-void Pack::addMember(const unique_ptr<Monster> monster) {
+void Pack::addMember(unique_ptr<Monster> monster) {
         this->combatPower += monster->getCombatPower();
         this->damage += monster->getDamage();
         this->loot += monster->getLoot();
-        this->members.push_back(monster); //I dont know why push back does not work
+        this->members.push_back(std::move(monster)); //I dont know why push back does not work
 }
 
 
