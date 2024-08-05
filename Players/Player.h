@@ -29,9 +29,9 @@ protected:
 
 
 public:
-    explicit Player(const string &name);
+    explicit Player(const string &name, unique_ptr<Character> character);
     Player(const string& name,const int& level,const int& force,const
-    int& current_HP,const int& max_HP,const int& coins);
+    int& current_HP,const int& max_HP,const int& coins, unique_ptr<Character> character);
     Player(const Player &other);
     virtual ~Player() = default;
     virtual Player* clone() const = 0;
