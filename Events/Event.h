@@ -33,6 +33,7 @@ public:
 
 class SolarEclipse : public SpecialEvent {
 public:
+    SolarEclipse();
     string getDescription() const override;
     void applyEvent(Player& player) const override;
 };
@@ -40,6 +41,7 @@ public:
 
 class PotionsMerchant : public SpecialEvent {
 public:
+    PotionsMerchant();
     string getDescription() const override;
     void applyEvent(Player& player) const override;
 };

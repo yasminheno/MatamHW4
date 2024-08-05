@@ -28,6 +28,7 @@ protected:
 
 
 public:
+    Monster(const string& name);
     Monster(const string& name, int combatPower ,int loot ,int damage);
     virtual void setCombatPower(int combat_power);
     virtual void setLoot(int loot);
@@ -54,6 +55,7 @@ public:
 };
 
 class Slime : public Monster{
+public:
     Slime();
     void setCombatPower(int combat_power) override;
     void setLoot(int loot) override;
@@ -65,6 +67,7 @@ class Slime : public Monster{
 };
 
 class Balrog : public Monster{
+public:
     Balrog();
     void setCombatPower(int combat_power) override;
     void setLoot(int loot) override;
@@ -82,7 +85,7 @@ private:
 
 
 public:
-    Pack(vector<unique_ptr<Monster>> members);
+    explicit Pack(vector<unique_ptr<Monster>> members);
     void addMember(unique_ptr<Monster> monster);
     size_t getSize();
     void setCombatPower(int combat_power) override;

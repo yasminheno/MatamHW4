@@ -11,33 +11,8 @@
 
 
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
-    try {
-        string name, word, character, job;
-        int count = 0;
-        while (playersStream >> name >> job >> character) {
-            if (character == "Responsible") {
-                unique_ptr<Character> player_character = std::make_unique<Responsible>();
-                createPlayer(std::move(player_character), name, job);
-            } else if (character == "RiskTaking") {
-                unique_ptr<Character> player_character = std::make_unique<Responsible>();
-                createPlayer(std::move(player_character), name, job);
-            } else {
-                throw std::runtime_error("Invalid character type");
-            }
-            if (name.length() < 3 || name.length() > 15) {
-                std::cerr << "Invalid Players File" << std::endl;
-                return;
-            }
-        }
-        if (players.size() < 2) {
-            std::cerr << "Invalid Players File" << std::endl;
-            return;
-        }
-
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << std::endl;
-
-    }
+    readEvents(eventsStream);
+    readPlayers(playersStream);
     this->m_turnIndex = 1;
 }
 
@@ -115,6 +90,70 @@ void MatamStory::createPlayer(unique_ptr<Character> character, const string& nam
         players.push_back(std::make_unique<Archer>(name, std::move(character)));
     } else {
         throw std::runtime_error("Invalid job type");
+    }
+}
+
+void MatamStory :: readEvents(std::istream& eventsStream) {
+    try {
+        string eventType, monster;
+        while (eventsStream >> eventType) {
+            if (eventType == "Snail") {
+                events.push_back(std::make_unique<Encounter>(std::make_unique<Snail>()));
+            } else if (eventType == "Balrog") {
+                events.push_back(std::make_unique<Encounter>(std::make_unique<Balrog>()));
+            } else if (eventType == "Slime") {
+                events.push_back(std::make_unique<Encounter>(std::make_unique<Slime>()));
+            } else if (eventType == "SolarEclipse") {
+                events.push_back(std::make_unique<SolarEclipse>());
+            } else if (eventType == "PotionsMerchant") {
+                events.push_back(std::make_unique<PotionsMerchant>());
+            } else if (eventType == "Pack") {
+                int numMembers;
+                eventsStream >> numMembers;
+                vector<unique_ptr<Monster>> members(numMembers);
+                Pack pack(std::move(members));
+                for (int i = 0; i < numMembers; ++i) {
+                    eventsStream >> monster;
+                    members.push_back(std::make_unique<Monster>(monster));
+                }
+                events.push_back(std::make_unique<Encounter>(std::make_unique<Pack>(std::move(members))));
+            } else {
+                throw std::runtime_error("Invalid event type");
+            }
+        }
+
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
+}
+
+void MatamStory :: readPlayers(std::istream& playersStream){
+    try {
+        string name, word, character, job;
+        int count = 0;
+        while (playersStream >> name >> job >> character) {
+            if (character == "Responsible") {
+                unique_ptr<Character> player_character = std::make_unique<Responsible>();
+                createPlayer(std::move(player_character), name, job);
+            } else if (character == "RiskTaking") {
+                unique_ptr<Character> player_character = std::make_unique<Responsible>();
+                createPlayer(std::move(player_character), name, job);
+            } else {
+                throw std::runtime_error("Invalid character type");
+            }
+            if (name.length() < 3 || name.length() > 15) {
+                std::cerr << "Invalid Players File" << std::endl;
+                return;
+            }
+        }
+        if (players.size() < 2 || players.size() > 6 ) {
+            std::cerr << "Invalid Players File" << std::endl;
+            return;
+        }
+
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+
     }
 }
 

@@ -22,6 +22,8 @@ void SolarEclipse::applyEvent(Player &player) const {
     }
 }
 
+SolarEclipse::SolarEclipse() : SpecialEvent("SolarEclipse"){};
+
 string PotionsMerchant::getDescription() const {
     return "PostionsMerchant";
 }
@@ -43,6 +45,7 @@ void PotionsMerchant::applyEvent(Player &player) const {
     }
 }
 
+PotionsMerchant::PotionsMerchant() : SpecialEvent("PotionsMerchant"){};
 
 //_________________Encounter________________________________________//
 Encounter::Encounter(unique_ptr<Monster> monster) : Event("Encounter"),

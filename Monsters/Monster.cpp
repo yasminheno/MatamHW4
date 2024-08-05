@@ -36,6 +36,8 @@ void Monster::setDamage(int damage) {
     this->damage = damage;
 }
 
+Monster::Monster(const string &name) : name(name) {};
+
 Snail :: Snail() : Monster("Snail",
                            INITAL_SNAIL_COMBATPOWER,
                            INITAL_SNAIL_LOOT, INITAL_SNAIL_DAMAGE){}

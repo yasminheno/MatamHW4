@@ -37,6 +37,11 @@ private:
     */
     bool isGameOver() const;
 
+    void createPlayer(unique_ptr<Character> character, const string &name, string &job);
+
+    void readEvents(std::istream &eventsStream);
+
+    void readPlayers(std::istream &playersStream);
 public:
     /**
      * Constructor of MatamStory class
@@ -57,5 +62,4 @@ public:
     void play();
 
 
-    void createPlayer(unique_ptr<Character> character, const string &name, string &job);
 };
