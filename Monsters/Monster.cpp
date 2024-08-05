@@ -36,7 +36,9 @@ void Monster::setDamage(int damage) {
     this->damage = damage;
 }
 
-Snail :: Snail() : Monster("Snail", 5, 2, 10){}
+Snail :: Snail() : Monster("Snail",
+                           INITAL_SNAIL_COMBATPOWER,
+                           INITAL_SNAIL_LOOT, INITAL_SNAIL_DAMAGE){}
 
 void Snail::setCombatPower(int combat_power) {
     Monster::setCombatPower(combat_power);
@@ -63,7 +65,8 @@ int Snail::getDamage() const {
 }
 
 
-Balrog ::Balrog() : Monster("Balrog", 15, 100, 9001){}
+Balrog ::Balrog() : Monster("Balrog", INITAL_BALROG_COMBATPOWER,
+                            INITAL_BALROG_LOOT, INITAL_BALROG_DAMAGE){}
 
 void Balrog::setCombatPower(int combat_power) {
     Monster::setCombatPower(combat_power);
@@ -89,7 +92,8 @@ int Balrog::getDamage() const {
     return Monster::getDamage();
 }
 
-Slime ::Slime() : Monster("Slime", 12, 5, 25){}
+Slime ::Slime() : Monster("Slime", INITAL_SLIME_COMBATPOWER,
+                          INITAL_SLIME_LOOT, INITAL_SILME_DAMAGE){}
 
 void Slime::setCombatPower(int combat_power) {
     Monster::setCombatPower(combat_power);
@@ -158,7 +162,7 @@ void Pack::addMember(unique_ptr<Monster> monster) {
         this->combatPower += monster->getCombatPower();
         this->damage += monster->getDamage();
         this->loot += monster->getLoot();
-        this->members.push_back(std::move(monster)); //I dont know why push back does not work
+        this->members.push_back(std::move(monster));
 }
 
 

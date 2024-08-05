@@ -57,10 +57,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yasminheni/mtm_hw4/MatamHW4
+CMAKE_SOURCE_DIR = /Users/yasminheni/ex4/MatamHW4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/yasminheni/ex4/MatamHW4/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/CMakeFiles /Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles /Users/yasminheni/ex4/MatamHW4/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,30 @@ MatamHW4: cmake_check_build_system
 MatamHW4/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/build
 .PHONY : MatamHW4/fast
+
+Events/Event.o: Events/Event.cpp.o
+.PHONY : Events/Event.o
+
+# target to build an object file
+Events/Event.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Events/Event.cpp.o
+.PHONY : Events/Event.cpp.o
+
+Events/Event.i: Events/Event.cpp.i
+.PHONY : Events/Event.i
+
+# target to preprocess a source file
+Events/Event.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Events/Event.cpp.i
+.PHONY : Events/Event.cpp.i
+
+Events/Event.s: Events/Event.cpp.s
+.PHONY : Events/Event.s
+
+# target to generate assembly for a file
+Events/Event.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Events/Event.cpp.s
+.PHONY : Events/Event.cpp.s
 
 MatamStory.o: MatamStory.cpp.o
 .PHONY : MatamStory.o
@@ -177,6 +201,30 @@ Monsters/Monster.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.s
 .PHONY : Monsters/Monster.cpp.s
 
+Players/Archer.o: Players/Archer.cpp.o
+.PHONY : Players/Archer.o
+
+# target to build an object file
+Players/Archer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o
+.PHONY : Players/Archer.cpp.o
+
+Players/Archer.i: Players/Archer.cpp.i
+.PHONY : Players/Archer.i
+
+# target to preprocess a source file
+Players/Archer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Archer.cpp.i
+.PHONY : Players/Archer.cpp.i
+
+Players/Archer.s: Players/Archer.cpp.s
+.PHONY : Players/Archer.s
+
+# target to generate assembly for a file
+Players/Archer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Archer.cpp.s
+.PHONY : Players/Archer.cpp.s
+
 Players/Charachter.o: Players/Charachter.cpp.o
 .PHONY : Players/Charachter.o
 
@@ -201,29 +249,29 @@ Players/Charachter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Charachter.cpp.s
 .PHONY : Players/Charachter.cpp.s
 
-Players/Job.o: Players/Job.cpp.o
-.PHONY : Players/Job.o
+Players/Magician.o: Players/Magician.cpp.o
+.PHONY : Players/Magician.o
 
 # target to build an object file
-Players/Job.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Job.cpp.o
-.PHONY : Players/Job.cpp.o
+Players/Magician.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o
+.PHONY : Players/Magician.cpp.o
 
-Players/Job.i: Players/Job.cpp.i
-.PHONY : Players/Job.i
+Players/Magician.i: Players/Magician.cpp.i
+.PHONY : Players/Magician.i
 
 # target to preprocess a source file
-Players/Job.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Job.cpp.i
-.PHONY : Players/Job.cpp.i
+Players/Magician.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Magician.cpp.i
+.PHONY : Players/Magician.cpp.i
 
-Players/Job.s: Players/Job.cpp.s
-.PHONY : Players/Job.s
+Players/Magician.s: Players/Magician.cpp.s
+.PHONY : Players/Magician.s
 
 # target to generate assembly for a file
-Players/Job.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Job.cpp.s
-.PHONY : Players/Job.cpp.s
+Players/Magician.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Magician.cpp.s
+.PHONY : Players/Magician.cpp.s
 
 Players/Player.o: Players/Player.cpp.o
 .PHONY : Players/Player.o
@@ -248,6 +296,30 @@ Players/Player.s: Players/Player.cpp.s
 Players/Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Player.cpp.s
 .PHONY : Players/Player.cpp.s
+
+Players/Warrior.o: Players/Warrior.cpp.o
+.PHONY : Players/Warrior.o
+
+# target to build an object file
+Players/Warrior.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o
+.PHONY : Players/Warrior.cpp.o
+
+Players/Warrior.i: Players/Warrior.cpp.i
+.PHONY : Players/Warrior.i
+
+# target to preprocess a source file
+Players/Warrior.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.i
+.PHONY : Players/Warrior.cpp.i
+
+Players/Warrior.s: Players/Warrior.cpp.s
+.PHONY : Players/Warrior.s
+
+# target to generate assembly for a file
+Players/Warrior.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.s
+.PHONY : Players/Warrior.cpp.s
 
 Utilities.o: Utilities.cpp.o
 .PHONY : Utilities.o
@@ -306,21 +378,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MatamHW4"
+	@echo "... Events/Event.o"
+	@echo "... Events/Event.i"
+	@echo "... Events/Event.s"
 	@echo "... MatamStory.o"
 	@echo "... MatamStory.i"
 	@echo "... MatamStory.s"
 	@echo "... Monsters/Monster.o"
 	@echo "... Monsters/Monster.i"
 	@echo "... Monsters/Monster.s"
+	@echo "... Players/Archer.o"
+	@echo "... Players/Archer.i"
+	@echo "... Players/Archer.s"
 	@echo "... Players/Charachter.o"
 	@echo "... Players/Charachter.i"
 	@echo "... Players/Charachter.s"
-	@echo "... Players/Job.o"
-	@echo "... Players/Job.i"
-	@echo "... Players/Job.s"
+	@echo "... Players/Magician.o"
+	@echo "... Players/Magician.i"
+	@echo "... Players/Magician.s"
 	@echo "... Players/Player.o"
 	@echo "... Players/Player.i"
 	@echo "... Players/Player.s"
+	@echo "... Players/Warrior.o"
+	@echo "... Players/Warrior.i"
+	@echo "... Players/Warrior.s"
 	@echo "... Utilities.o"
 	@echo "... Utilities.i"
 	@echo "... Utilities.s"

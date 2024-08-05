@@ -8,25 +8,25 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug"/>
+				<Option working_dir="/Users/yasminheni/ex4/MatamHW4/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="MatamHW4">
-				<Option output="/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/MatamHW4" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug"/>
+				<Option output="/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/MatamHW4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/yasminheni/ex4/MatamHW4/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/yasminheni/mtm_hw4/MatamHW4/."/>
-					<Add directory="/Users/yasminheni/mtm_hw4/MatamHW4/Events"/>
-					<Add directory="/Users/yasminheni/mtm_hw4/MatamHW4/Players"/>
+					<Add directory="/Users/yasminheni/ex4/MatamHW4/."/>
+					<Add directory="/Users/yasminheni/ex4/MatamHW4/Events"/>
+					<Add directory="/Users/yasminheni/ex4/MatamHW4/Players"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
@@ -37,22 +37,22 @@
 					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/System/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 MatamHW4"/>
-					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 MatamHW4"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="MatamHW4/fast">
-				<Option output="/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/MatamHW4" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug"/>
+				<Option output="/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/MatamHW4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/yasminheni/ex4/MatamHW4/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/yasminheni/mtm_hw4/MatamHW4/."/>
-					<Add directory="/Users/yasminheni/mtm_hw4/MatamHW4/Events"/>
-					<Add directory="/Users/yasminheni/mtm_hw4/MatamHW4/Players"/>
+					<Add directory="/Users/yasminheni/ex4/MatamHW4/."/>
+					<Add directory="/Users/yasminheni/ex4/MatamHW4/Events"/>
+					<Add directory="/Users/yasminheni/ex4/MatamHW4/Players"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
@@ -63,76 +63,91 @@
 					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/System/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 MatamHW4/fast"/>
-					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 MatamHW4/fast"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug"/>
+				<Option working_dir="/Users/yasminheni/ex4/MatamHW4/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug"/>
+				<Option working_dir="/Users/yasminheni/ex4/MatamHW4/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/mtm_hw4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j10 -f &quot;/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Events/Event.h">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Events/Event.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/MatamStory.cpp">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Events/Event.h">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/MatamStory.h">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/MatamStory.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Monsters/Monster.cpp">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/MatamStory.h">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Monsters/Monster.h">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Monsters/Monster.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Charachter.cpp">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Monsters/Monster.h">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Charachter.h">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Archer.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Job.cpp">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Archer.h">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Job.h">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Charachter.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Player.cpp">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Charachter.h">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Players/Player.h">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Magician.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Utilities.cpp">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Magician.h">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/Utilities.h">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Player.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/main.cpp">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Player.h">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/mtm_hw4/MatamHW4/CMakeLists.txt">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Warrior.cpp">
+			<Option target="MatamHW4"/>
+		</Unit>
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Warrior.h">
+			<Option target="MatamHW4"/>
+		</Unit>
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Utilities.cpp">
+			<Option target="MatamHW4"/>
+		</Unit>
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Utilities.h">
+			<Option target="MatamHW4"/>
+		</Unit>
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/main.cpp">
+			<Option target="MatamHW4"/>
+		</Unit>
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

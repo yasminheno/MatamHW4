@@ -39,7 +39,8 @@ int Player :: getCoins() const{
 
 
 
-Player::Player(const Player &other) : name(other.name), level(other.level), force(other.force), current_HP(other.current_HP), max_HP(other.max_HP),
+Player::Player(const Player &other) : name(other.name), level(other.level), force(other.force),
+current_HP(other.current_HP), max_HP(other.max_HP),
 coins(other.coins), character(other.character ? other.character->clone() : nullptr){}
 
 Player &Player::operator=(const Player &other) {
@@ -57,6 +58,10 @@ Player &Player::operator=(const Player &other) {
         }
     }
     return *this;
+}
+
+int Player::getCombatPower() {
+    return this->force + this->level;
 }
 
 

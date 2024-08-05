@@ -26,4 +26,5 @@ add_executable(MatamHW4
         Players/Magician.h
         Players/Magician.cpp
         Players/Warrior.cpp
-        Players/Archer.cpp)
+        Players/Archer.cpp
+        Events/Event.cpp)

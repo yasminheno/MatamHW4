@@ -37,19 +37,17 @@ public:
     virtual Player* clone() const = 0;
     Player &operator=(const Player &other);
 
-    void setCharachter(Character* character);
 
     virtual string getDescription() const = 0;
 
     string getName() const;
-
     virtual int getLevel() const;
-
     virtual int getForce() const;
-
     virtual int getHealthPoints() const;
-
     virtual int getCoins() const;
+
+    virtual int getCombatPower();
+
 
 };
 
