@@ -10,7 +10,7 @@ public:
     /**
      * Gets the description of the event
      *
-     * @return - the description of the event
+     * @return - the description of the e
     */
     virtual string getDescription() const;
 
