@@ -8,9 +8,9 @@ class Archer : public Player{
 
 public:
     string getDescription() const override;
-    explicit Archer(const string &name);
+    explicit Archer(const string &name, unique_ptr<Character> character);
     Archer(const string& name,const int& level,const int& force,
-           const int& current_HP,const int& max_HP,const int& coins);
+           const int& current_HP,const int& max_HP,const int& coins, unique_ptr<Character> character);
 
     Archer(const Archer &warrior) = default;
     Archer &operator=(const Archer &warrior) = default;

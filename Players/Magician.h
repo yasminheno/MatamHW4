@@ -4,9 +4,9 @@
 class Magician : public Player{
 public:
     string getDescription() const override;
-    explicit Magician(const string &name);
+    explicit Magician(const string &name, unique_ptr<Character> character);
     Magician(const string& name,const int& level,const int& force,
-             const int& current_HP,const int& max_HP,const int& coins);
+             const int& current_HP,const int& max_HP,const int& coins, unique_ptr<Character> character);
 
     Magician(const Magician &magician) = default;
     Magician &operator=(const Magician &magician) = default;

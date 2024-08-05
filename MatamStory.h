@@ -55,4 +55,7 @@ public:
      * @return - void
     */
     void play();
+
+
+    void createplayer(unique_ptr<Character> character, const string &name, string &job);
 };

@@ -7,13 +7,14 @@
 #include <vector>
 using std::unique_ptr;
 
-Player::Player(const string &name) : name(name), level(INITIAL_LEVEL), force(INITIAL_FORCE)
-        ,current_HP(INITIAL_MAXHP),max_HP(INITIAL_MAXHP),coins(INITIAL_COINS){}
+Player::Player(const string &name, unique_ptr<Character> character) : name(name), level(INITIAL_LEVEL), force(INITIAL_FORCE)
+        ,current_HP(INITIAL_MAXHP),max_HP(INITIAL_MAXHP),coins(INITIAL_COINS), character(std::move(character)){}
 
 
 Player::Player(const string &name,const int &level,const int &force,const int &current_HP,
-               const int &max_HP,const int &coins):
-        name(name), level(level), force(force), current_HP(current_HP), max_HP(max_HP), coins(coins) {}
+               const int &max_HP,const int &coins, unique_ptr<Character> character):
+        name(name), level(level), force(force), current_HP(current_HP), max_HP(max_HP), coins(coins),
+        character(std::move(character)){}
 
 
 

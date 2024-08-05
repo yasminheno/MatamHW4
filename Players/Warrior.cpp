@@ -4,13 +4,13 @@
 #include "string"
 using std::string;
 
-Warrior::Warrior(const string &name) : Player(name,INITIAL_LEVEL,INITIAL_FORCE,
+Warrior::Warrior(const string &name, unique_ptr<Character> character) : Player(name,INITIAL_LEVEL,INITIAL_FORCE,
                                               WARRIOR_INITIAL_MAXHP
-        , WARRIOR_INITIAL_MAXHP,INITIAL_COINS) {};
+        , WARRIOR_INITIAL_MAXHP,INITIAL_COINS,std::move(character)) {};
 
 Warrior::Warrior(const string &name,const int& level,const int& force,const int& current_HP,const
-int& max_HP,const int& coins) :
-        Player(name,level,force,current_HP,max_HP,coins){};
+int& max_HP,const int& coins, unique_ptr<Character> character) :
+        Player(name,level,force,current_HP,max_HP,coins,std::move(character)){};
 
 Player *Warrior::clone() const {
     return new Warrior(*this);
