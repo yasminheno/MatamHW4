@@ -18,9 +18,8 @@ MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) 
 
 
 void MatamStory::playTurn(Player& player) {
-
-    Event* event = events[m_turnIndex + 1].get();
-    printTurnDetails(m_turnIndex + 1,player,*event);
+    unique_ptr<Event>& event = events[m_turnIndex];
+    printTurnDetails(m_turnIndex, player,*event);
     event->applyEvent(player);
     std::string outcome = event->getDescription();
 
