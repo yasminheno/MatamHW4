@@ -19,8 +19,8 @@ add_executable(MatamHW4
         Players/Player.cpp
         Monsters/Monster.cpp
         Monsters/Monster.cpp
-        Players/Charachter.h
-        Players/Charachter.cpp
+        Players/Character.h
+        Players/Character.cpp
         Players/Warrior.h
         Players/Archer.h
         Players/Magician.h

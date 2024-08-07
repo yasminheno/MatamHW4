@@ -1,6 +1,4 @@
 #include "Player.h"
-#include "Charachter.h"
-
 #include "Utilities.h"
 #include "string"
 #include <utility>
@@ -65,8 +63,8 @@ int Player::getCombatPower() {
     return this->force + this->level;
 }
 
-int Player::setForce(const int &force) {
-    this->force = force;
+void Player::setForce(const int &force) {
+    this->force += force;
 }
 
 string Player::getCharacter() const {
@@ -115,14 +113,29 @@ void Player::decreaseCoins(int coins) {
     }
 }
 
-void Player::setCurrentHP(const int &hp) {
+void Player::addCurrentHP(const int &hp) {
    if(check_adding_HP(hp))
    {
        this->current_HP += hp;
    }
 }
 
+void Player::checkOutCome(const std::string &outcome) {
+    this->outcome = outcome;
+}
 
+string Player::getOutCome() {
+    return outcome;
+}
+
+void Player::decreaseCurrentHP(const int &damage) {
+    if(current_HP - damage >= 0)
+    {
+        current_HP -= damage;
+    } else{
+        current_HP = 0;
+    }
+}
 
 
 

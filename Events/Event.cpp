@@ -1,6 +1,6 @@
-#pragma once
 #include "Event.h"
 #include "string"
+#include "Utilities.h"
 using std::string;
  //_________________Event____________________________________________//
 Event::Event(const string& event_name) : event_name(event_name) {};
@@ -17,8 +17,10 @@ void SolarEclipse::applyEvent(Player &player) const {
     if(player.getJob() == "Magician")
     {
         player.setForce(player.getForce() + 1);
+        player.checkOutCome(getSolarEclipseMessage(player,1));
     } else{
         player.setForce((player.getForce() -1 ) > 0 ? player.getForce() -1 : 0);
+        player.checkOutCome(getSolarEclipseMessage(player, -1));
     }
 }
 
@@ -29,18 +31,23 @@ string PotionsMerchant::getDescription() const {
 }
 
 void PotionsMerchant::applyEvent(Player &player) const {
+    int amount = 0;
     const int potion_price = 5;
     const int potion_raise = 10;
     if(player.getCharacter() == "Responsible") {
         while (player.canPlayerPay(potion_price) || player.check_adding_HP(potion_raise)){
+            amount++;
             player.decreaseCoins(potion_price);
-            player.setCurrentHP(potion_raise);
+            player.addCurrentHP(potion_raise);
         }
+        player.checkOutCome(getPotionsPurchaseMessage(player,amount));
     } else {
         if(player.getCurrentHP() < 50 &&
         player.canPlayerPay(potion_price) && player.check_adding_HP(potion_raise)){
+            amount = 1;
+            player.checkOutCome(getPotionsPurchaseMessage(player,amount));
             player.decreaseCoins(potion_price);
-            player.setCurrentHP(potion_raise);
+            player.addCurrentHP(potion_raise);
         }
     }
 }
@@ -59,13 +66,14 @@ string Encounter::getDescription() const {
 }
 
 void Encounter::applyEvent(Player &player) const {
-    if(player.getCombatPower() > monster->getCombatPower())
-    {
+    if(player.getCombatPower() > monster->getCombatPower()) {
         player.levelUp();
         player.addCoins(monster->getLoot());
-        if(player.getJob() == "Warrior")
-        {
-            player.setCurrentHP(-10);
-        }
+        player.checkOutCome(getEncounterWonMessage(player, monster->getLoot()));
+        player.Weaken(10);
+    } else {
+        player.decreaseCurrentHP(monster->getDamage());
+        player.checkOutCome(getEncounterLostMessage(player,monster->getDamage()));
+
     }
 }

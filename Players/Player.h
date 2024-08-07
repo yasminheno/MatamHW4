@@ -2,7 +2,7 @@
 #pragma once
 
 #include <string>
-#include "Charachter.h"
+#include "Character.h"
 using std::string;
 #include <memory>
 using std::unique_ptr;
@@ -22,6 +22,7 @@ protected:
    int max_HP;
    int coins;
    unique_ptr<Character> character;
+   string outcome;
 
 
 
@@ -49,8 +50,10 @@ public:
     int getCurrentHP() const;
     virtual int getMaxHP() const;
 
-    virtual int setForce(const int& force);
-    virtual void setCurrentHP(const int& hp);
+    virtual void setForce(const int& force);
+    virtual void addCurrentHP(const int& hp);
+    virtual void decreaseCurrentHP(const int& damage);
+    virtual void Weaken(const int& hp) = 0;
 
 
     //additional helping functions
@@ -71,6 +74,10 @@ public:
     void decreaseCoins(int coins);
 
     virtual string getJob() const = 0;
+
+    virtual void checkOutCome(const string& outcome);
+
+    virtual string getOutCome();
 
 };
 

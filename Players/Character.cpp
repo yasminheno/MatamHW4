@@ -1,5 +1,5 @@
 
-#include "Charachter.h"
+#include "Character.h"
 
 string Responsible::getDescription() const {
     return "Responsible";

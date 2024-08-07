@@ -28,7 +28,7 @@ protected:
 
 
 public:
-    Monster(const string& name);
+   explicit Monster(const string& name);
     Monster(const string& name, int combatPower ,int loot ,int damage);
     virtual void setCombatPower(int combat_power);
     virtual void setLoot(int loot);

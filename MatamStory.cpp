@@ -1,9 +1,9 @@
 
 #include "MatamStory.h"
-#include "Warrior.h"
-#include "Archer.h"
-#include "Magician.h"
-#include "Player.h"
+#include "Players/Warrior.h"
+#include "Players/Archer.h"
+#include "Players/Magician.h"
+#include "Players/Player.h"
 #include "Utilities.h"
 #include "string"
 #include <vector>
@@ -14,20 +14,16 @@
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
     readEvents(eventsStream);
     readPlayers(playersStream);
-    this->m_turnIndex = 1;
+    this->m_turnIndex = 0;
 }
 
 
 void MatamStory::playTurn(Player& player) {
     unique_ptr<Event>& event = events[m_turnIndex];
-    printTurnDetails(m_turnIndex, player,*event);
+    printTurnDetails(m_turnIndex + 1, player,*event);
     event->applyEvent(player);
-    std::string outcome = event->getDescription();
     checkIfDead(player);
-
-
-
-
+    printTurnOutcome(player.getOutCome());
     /**
      * Steps to implement (there may be more, depending on your design):
      * 1. Get the next event from the events list
@@ -42,43 +38,56 @@ void MatamStory::playTurn(Player& player) {
 void MatamStory::playRound(){
 
     printRoundStart();
-
-    /*===== TODO: Play a turn for each player =====*/
-
-    /*=============================================*/
-
+    for (int i = 0; i < players.size(); ++i) {
+        playTurn(*players[i]);
+    }
     printRoundEnd();
-
     printLeaderBoardMessage();
-
-    /*===== TODO: Print leaderboard entry for each player using "printLeaderBoardEntry" =====*/
-
-    /*=======================================================================================*/
-
+    for (int i = 0; i < players.size(); ++i) {
+        printLeaderBoardEntry(i,*players[i]);
+    }
     printBarrier();
 }
 
 bool MatamStory::isGameOver() const {
-    /*===== TODO: Implement the game over condition =====*/
-    return false; // Replace this line
-    /*===================================================*/
+    for (int i = 0; i < players.size(); ++i) {
+        if(checkIfStop(*players[i]))
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 void MatamStory::play() {
     printStartMessage();
-    /*===== TODO: Print start message entry for each player using "printStartPlayerEntry" =====*/
-
-    /*=========================================================================================*/
+    printLeaderBoardMessage();
+    for (int i = 1; i <= players.size(); ++i) {
+        printStartPlayerEntry(i,*players[i]);
+    }
     printBarrier();
-
-    while (!isGameOver()) {
+    while(!isGameOver()) {
         playRound();
     }
-
     printGameOver();
-    /*===== TODO: Print either a "winner" message or "no winner" message =====*/
+    Player* winner = nullptr;
+    for (size_t i = 0; i < players.size(); ++i) {
+        Player* player = players[i].get();
+        if (winner == nullptr || player->getLevel() > winner->getLevel()) {
+            winner = player;
+        } else if (player->getLevel() == winner->getLevel()) {
+            if (player->getCoins() > winner->getCoins() ||
+                (player->getCoins() == winner->getCoins() && player->getName() < winner->getName())) {
+                winner = player;
+            }
+        }
+    }
 
-    /*========================================================================*/
+    if (winner && winner->getLevel() == 10) {
+        printWinner(*winner);
+    } else {
+       printNoWinners();
+    }
 }
 
 
@@ -131,7 +140,6 @@ void MatamStory :: readEvents(std::istream& eventsStream) {
 void MatamStory :: readPlayers(std::istream& playersStream){
     try {
         string name, word, character, job;
-        int count = 0;
         while (playersStream >> name >> job >> character) {
             if (character == "Responsible") {
                 unique_ptr<Character> player_character = std::make_unique<Responsible>();
@@ -168,12 +176,8 @@ void MatamStory :: checkIfDead(Player& player){
     }
 }
 
-bool MatamStory :: checkIfStop(Player& player){
-    if(player.getLevel() == 10 || players.empty()){
-        return true;
-    }
-    return false;
-
+bool MatamStory :: checkIfStop(Player& player) const {
+    return (player.getLevel() == 10 || players.empty());
 }
 
 

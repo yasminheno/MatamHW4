@@ -23,3 +23,11 @@ string Magician::getDescription() const {
 string Magician::getJob() const {
     return "Magician";
 }
+
+void Magician::setForce(const int &force) {
+    this->force++;
+}
+
+void Magician::Weaken(const int &hp) {
+    return;
+}

@@ -45,7 +45,7 @@ private:
 
     void checkIfDead(Player& player);
 
-    bool checkIfStop(Player& player);
+    bool checkIfStop(Player& player) const;
 public:
     /**
      * Constructor of MatamStory class

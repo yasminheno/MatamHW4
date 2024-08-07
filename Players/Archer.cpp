@@ -22,3 +22,11 @@ string Archer::getDescription() const {
     return os.str();
 }
 
+void Archer::Weaken(const int &hp) {
+    return;
+}
+
+string Archer::getJob() const {
+    return "Archer";
+}
+

@@ -1,4 +1,5 @@
 #include "Player.h"
+#pragma once
 
 
 const int WARRIOR_INITIAL_MAXHP = 150;
@@ -18,5 +19,6 @@ public:
     ~Warrior() override = default;
     Player* clone() const override;
     string getJob() const override;
+    virtual void Weaken(const int& hp) override;
 };
 

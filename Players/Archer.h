@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "string"
 using std::string;
+#pragma once
 
 const int ARCHER_INITIAL_COINS = 20;
 
@@ -17,8 +18,6 @@ public:
     ~Archer() override = default;
     Player* clone() const override;
     string getJob() const override;
+    void Weaken(const int& hp) override;
 };
 
-string Archer::getJob() const {
-    return "Archer";
-}

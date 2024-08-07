@@ -26,3 +26,13 @@ string Warrior::getDescription() const {
 string Warrior::getJob() const {
     return "Warrior";
 }
+
+void Warrior::Weaken(const int &hp){
+    if(current_HP - 10 >= 0)
+    {
+        current_HP -= 10;
+    } else{
+        current_HP = 0;
+    }
+}
+
