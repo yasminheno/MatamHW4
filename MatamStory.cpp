@@ -19,7 +19,7 @@ MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) 
 
 
 void MatamStory::playTurn(Player& player) {
-    unique_ptr<Event>& event = events[m_turnIndex];
+    unique_ptr<Event>& event = events[m_turnIndex % events.size()];
     printTurnDetails(m_turnIndex + 1, player,*event);
     event->applyEvent(player);
     checkIfDead(player);
@@ -166,8 +166,16 @@ void MatamStory :: readPlayers(std::istream& playersStream){
     }
 }
 
-void MatamStory :: checkIfDead(Player& player){
-    if(!(player.getCurrentHP())){
+void MatamStory :: checkIfDead(Player& player) {
+    m_turnIndex = 0;
+    for (size_t i = 0; i < players.size(); i++) {
+        if (!(player.getCurrentHP())) {
+            players.erase(players.begin() + m_turnIndex);
+        }
+        m_turnIndex++;
+    }
+}
+    /*if(!(player.getCurrentHP())){
         auto it = players.begin();
         for(; it != players.end(); ++it){
             if ((*it)->getName() == player.getName()) {
@@ -177,11 +185,8 @@ void MatamStory :: checkIfDead(Player& player){
             }
         }
     }
-}
-
-
-bool MatamStory :: checkIfStop(Player& player) const {
+}*/
+bool MatamStory::checkIfStop(Player &player) const {
     return (player.getLevel() == 10 || players.empty());
 }
-
 
