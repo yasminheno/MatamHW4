@@ -7,6 +7,7 @@
 #include "Utilities.h"
 #include "string"
 #include <vector>
+#include <iterator>
 
 
 
@@ -22,6 +23,7 @@ void MatamStory::playTurn(Player& player) {
     printTurnDetails(m_turnIndex, player,*event);
     event->applyEvent(player);
     std::string outcome = event->getDescription();
+    checkIfDead(player);
 
 
 
@@ -155,4 +157,23 @@ void MatamStory :: readPlayers(std::istream& playersStream){
 
     }
 }
+
+void MatamStory :: checkIfDead(Player& player){
+    if(!(player.getCurrentHP())){
+        auto it = players.begin();
+        if((*it)->getName() == player.getName()){
+            players.erase(players.begin());
+        }
+        ++it;
+    }
+}
+
+bool MatamStory :: checkIfStop(Player& player){
+    if(player.getLevel() == 10 || players.empty()){
+        return true;
+    }
+    return false;
+
+}
+
 

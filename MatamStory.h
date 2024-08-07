@@ -42,6 +42,10 @@ private:
     void readEvents(std::istream &eventsStream);
 
     void readPlayers(std::istream &playersStream);
+
+    void checkIfDead(Player& player);
+
+    bool checkIfStop(Player& player);
 public:
     /**
      * Constructor of MatamStory class
