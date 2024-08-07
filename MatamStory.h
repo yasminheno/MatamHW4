@@ -46,6 +46,8 @@ private:
     void checkIfDead(Player& player);
 
     bool checkIfStop(Player& player) const;
+
+    void add_Pack(std::istream& eventsStream);
 public:
     /**
      * Constructor of MatamStory class

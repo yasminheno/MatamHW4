@@ -62,7 +62,7 @@ bool MatamStory::isGameOver() const {
 void MatamStory::play() {
     printStartMessage();
     printLeaderBoardMessage();
-    for (size_t i = 1; i <= players.size(); ++i) {
+    for (size_t i = 0; i < players.size(); ++i) {
         printStartPlayerEntry(i,*players[i]);
     }
     printBarrier();
@@ -120,11 +120,16 @@ void MatamStory :: readEvents(std::istream& eventsStream) {
             } else if (eventType == "Pack") {
                 int numMembers;
                 eventsStream >> numMembers;
-                vector<unique_ptr<Monster>> members/*(numMembers)*/;
+                vector<unique_ptr<Monster>> members;
                 Pack pack(std::move(members));
                 for (int i = 0; i < numMembers; ++i) {
                     eventsStream >> monster;
-                    members.push_back(std::make_unique<Monster>(monster));
+                    if (monster != "Pack"){
+                        members.push_back(std::make_unique<Monster>(monster));
+                    } else{
+                        add_Pack(eventsStream);
+                    }
+
                 }
                 events.push_back(std::make_unique<Encounter>(std::make_unique<Pack>(std::move(members))));
             } else {
@@ -190,3 +195,21 @@ bool MatamStory::checkIfStop(Player &player) const {
     return (player.getLevel() == 10 || players.empty());
 }
 
+void MatamStory :: add_Pack(std::istream& eventsStream){
+    int members_num;
+    string monster;
+    vector<unique_ptr<Monster>> members;
+    eventsStream >> members_num;
+    Pack pack(std::move(members));
+    for(int i = 0; i < members_num; i++){
+        eventsStream >> monster;
+        if (monster != "Pack"){
+            members.push_back(std::make_unique<Monster>(monster));
+        } else{
+            add_Pack(eventsStream);
+        }
+    }
+}
+// I think we can just put this function in read events function instead of שכפול קוד
+// but I am not pretty sure it works well, the point is to cover the monster that has תת תת להקה that we
+//did not check aslan
