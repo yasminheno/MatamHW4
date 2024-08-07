@@ -12,7 +12,7 @@ using std::exception;
 using std::ifstream;
 
 int main(int argc, char** argv) {
-    if (argc != 3) {
+   if (argc != 3) {
         cout << "Invalid number of arguments" << endl;
         cout << "Usage: MatamStory <events_file_path> <players_file_path>" << endl;
     }
@@ -28,6 +28,8 @@ int main(int argc, char** argv) {
         cout << "Invalid Players File" << endl;
         return 1;
     }
+    //std::ifstream eventsStream("MatamHW4\\tests\\test1.events");
+    //std::ifstream playersStream("MatamHW4\\tests\\test2.players");
 
     try {
         MatamStory game(eventsStream, playersStream);

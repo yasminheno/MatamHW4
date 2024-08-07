@@ -37,7 +37,7 @@ private:
     */
     bool isGameOver() const;
 
-    void createPlayer(unique_ptr<Character> character, const string &name, string &job);
+    void createPlayer(unique_ptr<Character> character, const string &name,const string& job);
 
     void readEvents(std::istream &eventsStream);
 

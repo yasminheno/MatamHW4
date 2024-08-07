@@ -38,19 +38,19 @@ void MatamStory::playTurn(Player& player) {
 void MatamStory::playRound(){
 
     printRoundStart();
-    for (int i = 0; i < players.size(); ++i) {
+    for (size_t i = 0; i < players.size(); ++i) {
         playTurn(*players[i]);
     }
     printRoundEnd();
     printLeaderBoardMessage();
-    for (int i = 0; i < players.size(); ++i) {
+    for (size_t i = 0; i < players.size(); ++i) {
         printLeaderBoardEntry(i,*players[i]);
     }
     printBarrier();
 }
 
 bool MatamStory::isGameOver() const {
-    for (int i = 0; i < players.size(); ++i) {
+    for (size_t i = 0; i < players.size(); ++i) {
         if(checkIfStop(*players[i]))
         {
             return true;
@@ -62,7 +62,7 @@ bool MatamStory::isGameOver() const {
 void MatamStory::play() {
     printStartMessage();
     printLeaderBoardMessage();
-    for (int i = 1; i <= players.size(); ++i) {
+    for (size_t i = 1; i <= players.size(); ++i) {
         printStartPlayerEntry(i,*players[i]);
     }
     printBarrier();
@@ -91,7 +91,7 @@ void MatamStory::play() {
 }
 
 
-void MatamStory::createPlayer(unique_ptr<Character> character, const string& name, string& job) {
+void MatamStory::createPlayer(unique_ptr<Character> character, const string& name,const string& job) {
     if (job == "Warrior") {
        players.push_back(std::make_unique<Warrior>(name, std::move(character)));
     } else if (job == "Magician") {
@@ -120,7 +120,7 @@ void MatamStory :: readEvents(std::istream& eventsStream) {
             } else if (eventType == "Pack") {
                 int numMembers;
                 eventsStream >> numMembers;
-                vector<unique_ptr<Monster>> members(numMembers);
+                vector<unique_ptr<Monster>> members/*(numMembers)*/;
                 Pack pack(std::move(members));
                 for (int i = 0; i < numMembers; ++i) {
                     eventsStream >> monster;
@@ -145,7 +145,7 @@ void MatamStory :: readPlayers(std::istream& playersStream){
                 unique_ptr<Character> player_character = std::make_unique<Responsible>();
                 createPlayer(std::move(player_character), name, job);
             } else if (character == "RiskTaking") {
-                unique_ptr<Character> player_character = std::make_unique<Responsible>();
+                unique_ptr<Character> player_character = std::make_unique<RiskTaking>();
                 createPlayer(std::move(player_character), name, job);
             } else {
                 throw std::runtime_error("Invalid character type");
@@ -169,12 +169,16 @@ void MatamStory :: readPlayers(std::istream& playersStream){
 void MatamStory :: checkIfDead(Player& player){
     if(!(player.getCurrentHP())){
         auto it = players.begin();
-        if((*it)->getName() == player.getName()){
-            players.erase(players.begin());
+        for(; it != players.end(); ++it){
+            if ((*it)->getName() == player.getName()) {
+                it = players.erase(it); // Remove the player and update the iterator
+            } else {
+                ++it; // Move to the next player
+            }
         }
-        ++it;
     }
 }
+
 
 bool MatamStory :: checkIfStop(Player& player) const {
     return (player.getLevel() == 10 || players.empty());

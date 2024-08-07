@@ -1,0 +1,26 @@
+# ninja log v5
+108	1690	7447301491863281	CMakeFiles/MatamHW4.dir/Players/Character.cpp.obj	a0f57f4beb3f7b16
+125	1845	7447301493484680	CMakeFiles/MatamHW4.dir/Players/Player.cpp.obj	7364789a9b27453e
+178	1876	7447301493778284	CMakeFiles/MatamHW4.dir/Events/Event.cpp.obj	a89f68e14bcdfd7b
+71	2035	7447301495363866	CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.obj	a86fa2ceea279d17
+168	2127	7447301496198266	CMakeFiles/MatamHW4.dir/Players/Archer.cpp.obj	ec911f6982f83137
+85	2154	7447301496599183	CMakeFiles/MatamHW4.dir/Utilities.cpp.obj	dacab3bf71924fb2
+207	2169	7447301496729179	CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.obj	b92f0d866ee415da
+192	2171	7447301496759246	CMakeFiles/MatamHW4.dir/Players/Magician.cpp.obj	e3978dd0ab13a4a3
+2	2306	7447301498121689	CMakeFiles/MatamHW4.dir/main.cpp.obj	5253b546cda173b2
+48	3362	7447301507864505	CMakeFiles/MatamHW4.dir/MatamStory.cpp.obj	dbc5a10f8536967a
+3362	4397	7447301518654565	MatamHW4.exe	db19a1ce6e01ca46
+6	874	7447305241867508	CMakeFiles/MatamHW4.dir/main.cpp.obj	5253b546cda173b2
+876	1615	7447305248760461	MatamHW4.exe	db19a1ce6e01ca46
+4	784	7447322291205162	CMakeFiles/MatamHW4.dir/main.cpp.obj	5253b546cda173b2
+16	1508	7447322298693299	CMakeFiles/MatamHW4.dir/MatamStory.cpp.obj	dbc5a10f8536967a
+1508	2136	7447322304971092	MatamHW4.exe	db19a1ce6e01ca46
+6	826	7447322658586842	CMakeFiles/MatamHW4.dir/main.cpp.obj	5253b546cda173b2
+828	1438	7447322664826439	MatamHW4.exe	db19a1ce6e01ca46
+6	872	7447323010647851	CMakeFiles/MatamHW4.dir/main.cpp.obj	5253b546cda173b2
+874	1599	7447323016653731	MatamHW4.exe	db19a1ce6e01ca46
+3	755	7447325875245093	CMakeFiles/MatamHW4.dir/main.cpp.obj	5253b546cda173b2
+757	1217	7447325879735527	MatamHW4.exe	db19a1ce6e01ca46
+5	857	7447328855025066	CMakeFiles/MatamHW4.dir/main.cpp.obj	5253b546cda173b2
+27	1855	7447328865016460	CMakeFiles/MatamHW4.dir/MatamStory.cpp.obj	dbc5a10f8536967a
+1856	2332	7447328869679084	MatamHW4.exe	db19a1ce6e01ca46

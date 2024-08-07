@@ -219,13 +219,13 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Players/Charachter.h",
+			"path" : "Players/Character.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Players/Charachter.cpp",
+			"path" : "Players/Character.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
