@@ -39,6 +39,8 @@ public:
     virtual int getLoot() const;
     virtual ~Monster() = default;
 
+
+
 };
 
 class Snail: public Monster{
@@ -50,6 +52,7 @@ public:
     int getCombatPower() const override;
     int getDamage() const override;
     int getLoot() const override;
+
 
 
 };

@@ -17,7 +17,7 @@ Player *Archer::clone() const {
 }
 string Archer::getDescription() const {
     std::ostringstream os;
-    os << name << ", " << "Warrior" << " with " << character->getDescription()
+    os << name << ", " << "Archer" << " with " << character->getDescription()
        << " character (level " << level << ", force " << force << ")";
     return os.str();
 }

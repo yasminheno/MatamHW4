@@ -60,7 +60,7 @@ monster(std::move(monster)){}
 
 
 string Encounter::getDescription() const {
-    return monster->getName() + "(power " + (std::to_string(monster->getCombatPower())) +
+    return monster->getName() + " (power " + (std::to_string(monster->getCombatPower())) +
     + ", loot " + std::to_string(monster->getLoot()) +
     ", damage " + std::to_string(monster->getDamage())+")";
 }

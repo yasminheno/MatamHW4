@@ -36,6 +36,8 @@ void Monster::setDamage(int damage) {
     this->damage = damage;
 }
 
+
+
 Monster::Monster(const string &name) : name(name) {};
 
 Snail :: Snail() : Monster("Snail",
@@ -67,6 +69,7 @@ int Snail::getDamage() const {
 }
 
 
+
 Balrog ::Balrog() : Monster("Balrog", INITAL_BALROG_COMBATPOWER,
                             INITAL_BALROG_LOOT, INITAL_BALROG_DAMAGE){}
 
@@ -94,6 +97,8 @@ int Balrog::getDamage() const {
     return Monster::getDamage();
 }
 
+
+
 Slime ::Slime() : Monster("Slime", INITAL_SLIME_COMBATPOWER,
                           INITAL_SLIME_LOOT, INITAL_SILME_DAMAGE){}
 
@@ -120,6 +125,8 @@ int Slime::getLoot()const {
 int Slime::getDamage() const {
     return Monster::getDamage();
 }
+
+
 
 Pack ::Pack(vector<unique_ptr<Monster>> members)
     : Monster("Pack", 0, 0, 0), members(std::move(members)){
@@ -166,6 +173,7 @@ void Pack::addMember(unique_ptr<Monster> monster) {
         this->loot += monster->getLoot();
         this->members.push_back(std::move(monster));
 }
+
 
 
 

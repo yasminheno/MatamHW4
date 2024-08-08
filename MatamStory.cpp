@@ -22,48 +22,52 @@ void MatamStory::playTurn(Player& player) {
     unique_ptr<Event>& event = events[m_turnIndex % events.size()];
     printTurnDetails(m_turnIndex + 1, player,*event);
     event->applyEvent(player);
-    checkIfDead(player);
     printTurnOutcome(player.getOutCome());
-    /**
-     * Steps to implement (there may be more, depending on your design):
-     * 1. Get the next event from the events list
-     * 2. Print the turn details with "printTurnDetails"
-     * 3. Play the event
-     * 4. Print the turn outcome with "printTurnOutcome"
-    */
-
     m_turnIndex++;
 }
 
 void MatamStory::playRound(){
 
     printRoundStart();
-    for (size_t i = 0; i < players.size(); ++i) {
-        playTurn(*players[i]);
+    for (size_t i = 0; i < players.size();++i) {
+        if(players[i]->getCurrentHP() != 0)
+        {
+            playTurn(*players[i]);
+        }
     }
     printRoundEnd();
     printLeaderBoardMessage();
     for (size_t i = 0; i < players.size(); ++i) {
-        printLeaderBoardEntry(i,*players[i]);
+        printLeaderBoardEntry(i + 1,*players[i]);
     }
     printBarrier();
 }
 
 bool MatamStory::isGameOver() const {
+
+    int count = 0;
     for (size_t i = 0; i < players.size(); ++i) {
-        if(checkIfStop(*players[i]))
-        {
+        if (players[i]->getLevel() == 10) {
             return true;
         }
+        if(players[i]->getCurrentHP() == 0)
+        {
+            count++;
+        }
     }
+    if(count == players.size())
+    {
+        return true;
+    }
+
     return false;
 }
 
+
 void MatamStory::play() {
     printStartMessage();
-    printLeaderBoardMessage();
     for (size_t i = 0; i < players.size(); ++i) {
-        printStartPlayerEntry(i,*players[i]);
+        printStartPlayerEntry(i + 1,*players[i]);
     }
     printBarrier();
     while(!isGameOver()) {
@@ -118,29 +122,17 @@ void MatamStory :: readEvents(std::istream& eventsStream) {
             } else if (eventType == "PotionsMerchant") {
                 events.push_back(std::make_unique<PotionsMerchant>());
             } else if (eventType == "Pack") {
-                int numMembers;
-                eventsStream >> numMembers;
-                vector<unique_ptr<Monster>> members;
-                Pack pack(std::move(members));
-                for (int i = 0; i < numMembers; ++i) {
-                    eventsStream >> monster;
-                    if (monster != "Pack"){
-                        members.push_back(std::make_unique<Monster>(monster));
-                    } else{
-                        add_Pack(eventsStream);
-                    }
-
-                }
-                events.push_back(std::make_unique<Encounter>(std::make_unique<Pack>(std::move(members))));
+                add_Pack(eventsStream);
             } else {
                 throw std::runtime_error("Invalid event type");
             }
         }
-
-    } catch (const std::exception &e) {
+    } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
 }
+
+
 
 void MatamStory :: readPlayers(std::istream& playersStream){
     try {
@@ -171,7 +163,7 @@ void MatamStory :: readPlayers(std::istream& playersStream){
     }
 }
 
-void MatamStory :: checkIfDead(Player& player) {
+/*void MatamStory :: checkIfDead(Player& player) {
     m_turnIndex = 0;
     for (size_t i = 0; i < players.size(); i++) {
         if (!(player.getCurrentHP())) {
@@ -179,7 +171,7 @@ void MatamStory :: checkIfDead(Player& player) {
         }
         m_turnIndex++;
     }
-}
+}*/
     /*if(!(player.getCurrentHP())){
         auto it = players.begin();
         for(; it != players.end(); ++it){
@@ -191,25 +183,30 @@ void MatamStory :: checkIfDead(Player& player) {
         }
     }
 }*/
-bool MatamStory::checkIfStop(Player &player) const {
-    return (player.getLevel() == 10 || players.empty());
-}
 
-void MatamStory :: add_Pack(std::istream& eventsStream){
-    int members_num;
-    string monster;
-    vector<unique_ptr<Monster>> members;
-    eventsStream >> members_num;
-    Pack pack(std::move(members));
-    for(int i = 0; i < members_num; i++){
-        eventsStream >> monster;
-        if (monster != "Pack"){
-            members.push_back(std::make_unique<Monster>(monster));
-        } else{
+
+void MatamStory::add_Pack(std::istream& eventsStream) {
+    int numMembers;
+    std::string monsterType;
+    eventsStream >> numMembers;
+
+
+    std::vector<std::unique_ptr<Monster>> members;
+    for (int i = 0; i < numMembers; ++i) {
+        eventsStream >> monsterType;
+
+        if (monsterType == "Snail") {
+            members.push_back(std::make_unique<Snail>());
+        } else if (monsterType == "Balrog") {
+            members.push_back(std::make_unique<Balrog>());
+        } else if (monsterType == "Slime") {
+            members.push_back(std::make_unique<Slime>());
+        } else if (monsterType == "Pack") {
+            std::vector<std::unique_ptr<Monster>> subPackMembers;
             add_Pack(eventsStream);
+            members.push_back(std::make_unique<Pack>(std::move(subPackMembers)));
         }
     }
+
+    events.push_back(std::make_unique<Encounter>(std::make_unique<Pack>(std::move(members))));
 }
-// I think we can just put this function in read events function instead of שכפול קוד
-// but I am not pretty sure it works well, the point is to cover the monster that has תת תת להקה that we
-//did not check aslan

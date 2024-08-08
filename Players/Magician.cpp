@@ -15,7 +15,7 @@ Player *Magician::clone() const {
 
 string Magician::getDescription() const {
     std::ostringstream os;
-    os << name << ", " << "Warrior" << " with " << character->getDescription()
+    os << name << ", " << "Magician" << " with " << character->getDescription()
        << " character (level " << level << ", force " << force << ")";
     return os.str();
 }
