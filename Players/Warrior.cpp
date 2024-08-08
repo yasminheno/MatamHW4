@@ -12,6 +12,10 @@ Warrior::Warrior(const string &name,const int& level,const int& force,const int&
 int& max_HP,const int& coins, unique_ptr<Character> character) :
         Player(name,level,force,current_HP,max_HP,coins,std::move(character)){};
 
+/*int Warrior::getCombatPower() {
+    return (this->force) * 2 + this->level;
+}*/
+
 Player *Warrior::clone() const {
     return new Warrior(*this);
 }

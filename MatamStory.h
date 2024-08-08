@@ -49,6 +49,7 @@ private:
 
     void add_Pack(std::istream& eventsStream);
     void processPack(std::istream& eventsStream, Pack& pack);
+
 public:
     /**
      * Constructor of MatamStory class

@@ -90,7 +90,7 @@ private:
 public:
     explicit Pack(vector<unique_ptr<Monster>> members);
     void addMember(unique_ptr<Monster> monster);
-    size_t getSize();
+    size_t getSize() const;
     void setCombatPower(int combat_power) override;
     void setLoot(int loot) override;
     void setDamage(int damage) override;

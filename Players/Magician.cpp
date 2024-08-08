@@ -9,6 +9,10 @@ Magician::Magician(const std::string &name, const int &level, const int &force,
                    unique_ptr<Character> character) :
         Player(name,level,force,coins,max_HP,coins, std::move(character)) {};
 
+/*int Magician::getCombatPower() {
+    return this->force + this->level;
+}*/
+
 Player *Magician::clone() const {
     return new Magician(*this);
 }

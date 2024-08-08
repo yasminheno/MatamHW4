@@ -27,7 +27,7 @@ void SolarEclipse::applyEvent(Player &player) const {
 SolarEclipse::SolarEclipse() : SpecialEvent("SolarEclipse"){};
 
 string PotionsMerchant::getDescription() const {
-    return "PostionsMerchant";
+    return "PotionsMerchant";
 }
 
 void PotionsMerchant::applyEvent(Player &player) const {
@@ -35,7 +35,7 @@ void PotionsMerchant::applyEvent(Player &player) const {
     const int potion_price = 5;
     const int potion_raise = 10;
     if(player.getCharacter() == "Responsible") {
-        while (player.canPlayerPay(potion_price) || player.check_adding_HP(potion_raise)){
+        while (player.canPlayerPay(potion_price) && player.check_adding_HP(potion_raise)){
             amount++;
             player.decreaseCoins(potion_price);
             player.addCurrentHP(potion_raise);
@@ -60,9 +60,18 @@ monster(std::move(monster)){}
 
 
 string Encounter::getDescription() const {
-    return monster->getName() + " (power " + (std::to_string(monster->getCombatPower())) +
-    + ", loot " + std::to_string(monster->getLoot()) +
-    ", damage " + std::to_string(monster->getDamage())+")";
+    if(monster->getName() != "Pack"){
+        return monster->getName() + " (power " + (std::to_string(monster->getCombatPower())) +
+               + ", loot " + std::to_string(monster->getLoot()) +
+               ", damage " + std::to_string(monster->getDamage())+")";
+    }
+    const Pack& pack = static_cast<const Pack&>(*monster);
+    size_t size = pack.getSize();
+
+    return pack.getName() + " of " + std::to_string(size) + " members" +
+           " (power " + std::to_string(pack.getCombatPower()) +
+           ", loot " + std::to_string(pack.getLoot()) +
+           ", damage " + std::to_string(pack.getDamage()) + ")";
 }
 
 void Encounter::applyEvent(Player &player) const {

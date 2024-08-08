@@ -3,7 +3,7 @@ These are the players:
 
 1. Daniel, Warrior with Responsible character (level 1, force 5)
 2. Regev, Magician with RiskTaking character (level 1, force 5)
-3. Baraa, Warrior with RiskTaking character (level 1, force 5)
+3. Baraa, Archer with RiskTaking character (level 1, force 5)
 
 ----------------------------------------
 
@@ -16,11 +16,11 @@ Daniel won the encounter, gained 2 coins and leveled up!
 
 Turn: 2
 Player: Regev, Magician with RiskTaking character (level 1, force 5)
-Event: Pack (power 24, loot 10, damage 50)
+Event: Pack of 2 members (power 24, loot 10, damage 50)
 Regev lost the encounter and took 50 damage!
 
 Turn: 3
-Player: Baraa, Warrior with RiskTaking character (level 1, force 5)
+Player: Baraa, Archer with RiskTaking character (level 1, force 5)
 Event: Balrog (power 15, loot 100, damage 9001)
 Baraa lost the encounter and took 9001 damage!
 
@@ -42,7 +42,7 @@ Daniel was affected by a solar eclipse! their force has changed by -1!
 
 Turn: 5
 Player: Regev, Magician with RiskTaking character (level 1, force 5)
-Event: PostionsMerchant
+Event: PotionsMerchant
 Regev lost the encounter and took 50 damage!
 
 Round has ended!
@@ -63,7 +63,7 @@ Daniel won the encounter, gained 2 coins and leveled up!
 
 Turn: 7
 Player: Regev, Magician with RiskTaking character (level 1, force 5)
-Event: Pack (power 24, loot 10, damage 50)
+Event: Pack of 2 members (power 24, loot 10, damage 50)
 Regev lost the encounter and took 50 damage!
 
 Round has ended!

@@ -24,7 +24,7 @@ void printTurnDetails(unsigned int index, const Player& player, const Event& eve
     cout << "Event: " << event.getDescription() << endl;
 }
 
-void printTurnOutcome(string outcome) {
+void printTurnOutcome(const string& outcome) {
     cout << outcome << endl;
     cout << endl;
 }

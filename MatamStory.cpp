@@ -45,7 +45,7 @@ void MatamStory::playRound(){
 
 bool MatamStory::isGameOver() const {
 
-    int count = 0;
+    size_t count = 0;
     for (size_t i = 0; i < players.size(); ++i) {
         if (players[i]->getLevel() == 10) {
             return true;
@@ -77,13 +77,16 @@ void MatamStory::play() {
     Player* winner = nullptr;
     for (size_t i = 0; i < players.size(); ++i) {
         Player* player = players[i].get();
+
         if (winner == nullptr || player->getLevel() > winner->getLevel()) {
             winner = player;
         } else if (player->getLevel() == winner->getLevel()) {
-            if (player->getCoins() > winner->getCoins() ||
-                (player->getCoins() == winner->getCoins() && player->getName() < winner->getName())) {
+            if (player->getCoins() > winner->getCoins()){
+                winner = player;
+            } else if((player->getName() < winner->getName())){
                 winner = player;
             }
+
         }
     }
 
@@ -163,7 +166,7 @@ void MatamStory :: readPlayers(std::istream& playersStream){
     }
 }
 
-/*void MatamStory :: checkIfDead(Player& player) {
+void MatamStory :: checkIfDead(Player& player) {
     m_turnIndex = 0;
     for (size_t i = 0; i < players.size(); i++) {
         if (!(player.getCurrentHP())) {
@@ -171,7 +174,7 @@ void MatamStory :: readPlayers(std::istream& playersStream){
         }
         m_turnIndex++;
     }
-}*/
+}
     /*if(!(player.getCurrentHP())){
         auto it = players.begin();
         for(; it != players.end(); ++it){

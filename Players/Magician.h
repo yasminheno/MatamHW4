@@ -16,4 +16,6 @@ public:
     string getJob() const override;
     void setForce(const int& force) override;
     void Weaken(const int& hp) override;
+
+    //int getCombatPower() override;
 };

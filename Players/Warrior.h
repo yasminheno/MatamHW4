@@ -20,5 +20,7 @@ public:
     Player* clone() const override;
     string getJob() const override;
     virtual void Weaken(const int& hp) override;
+
+   // int getCombatPower() override;
 };
 

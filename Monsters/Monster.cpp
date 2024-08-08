@@ -163,7 +163,7 @@ int Pack::getLoot() const {
     return Monster::getLoot();
 }
 
-size_t Pack::getSize() {
+size_t Pack::getSize() const {
     return this->members.size();
 }
 

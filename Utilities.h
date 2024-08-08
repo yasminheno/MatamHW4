@@ -41,7 +41,7 @@ void printTurnDetails(unsigned int index, const Player& player, const Event& eve
  *
  * @return - void
 */
-void printTurnOutcome(std::string outcome);
+void printTurnOutcome(const std::string& outcome);
 
 /**
  * Prints the start message of a round

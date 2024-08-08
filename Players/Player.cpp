@@ -59,9 +59,7 @@ Player &Player::operator=(const Player &other) {
     return *this;
 }
 
-int Player::getCombatPower() {
-    return this->force + this->level;
-}
+
 
 void Player::setForce(const int &force) {
     this->force += force;
@@ -79,7 +77,7 @@ int Player::getMaxHP() const {
     return this->max_HP;
 }
 
-bool Player::canPlayerPay(int coins) {
+bool Player::canPlayerPay(int coins) const {
     if(this->coins - coins < 0)
     {
         return false;
@@ -88,7 +86,7 @@ bool Player::canPlayerPay(int coins) {
     return true;
 }
 
-bool Player::check_adding_HP(int hp) {
+bool Player::check_adding_HP(int hp) const {
     if(this->current_HP + hp > this->max_HP) {
         return false;
     }
@@ -135,6 +133,10 @@ void Player::decreaseCurrentHP(const int &damage) {
     } else{
         current_HP = 0;
     }
+}
+
+int Player::getCombatPower() {
+    return this->force + this->level;
 }
 
 

@@ -13,11 +13,13 @@ public:
     Archer(const string& name,const int& level,const int& force,
            const int& current_HP,const int& max_HP,const int& coins, unique_ptr<Character> character);
 
-    Archer(const Archer &warrior) = default;
-    Archer &operator=(const Archer &warrior) = default;
+    Archer(const Archer &archer) = default;
+    Archer &operator=(const Archer &archer) = default;
     ~Archer() override = default;
     Player* clone() const override;
     string getJob() const override;
     void Weaken(const int& hp) override;
+
+    //int getCombatPower() override;
 };
 
