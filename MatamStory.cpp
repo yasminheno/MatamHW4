@@ -26,6 +26,34 @@ void MatamStory::playTurn(Player& player) {
     m_turnIndex++;
 }
 
+bool playerComparator(const std::unique_ptr<Player>& a, const std::unique_ptr<Player>& b) {
+    if (a->getLevel() != b->getLevel()) {
+        return a->getLevel() > b->getLevel();
+    }
+    if (a->getCoins() != b->getCoins()) {
+        return a->getCoins() > b->getCoins();
+    }
+    return a->getName() < b->getName();
+}
+
+void PrintSortedBoard(const std::vector<std::unique_ptr<Player>>& players) {
+    printLeaderBoardMessage();
+    std::vector<std::unique_ptr<Player>> sortedPlayers;
+
+    // Clone players for sorting
+    for (const auto& player : players) {
+        sortedPlayers.push_back(player->clone());
+    }
+
+    std::sort(sortedPlayers.begin(), sortedPlayers.end(), playerComparator);
+
+    for (size_t i = 0; i < sortedPlayers.size(); ++i) {
+        printLeaderBoardEntry(i + 1, *sortedPlayers[i]);
+    }
+    printBarrier();
+}
+
+
 void MatamStory::playRound(){
 
     printRoundStart();
@@ -36,11 +64,7 @@ void MatamStory::playRound(){
         }
     }
     printRoundEnd();
-    printLeaderBoardMessage();
-    for (size_t i = 0; i < players.size(); ++i) {
-        printLeaderBoardEntry(i + 1,*players[i]);
-    }
-    printBarrier();
+    PrintSortedBoard(players);
 }
 
 bool MatamStory::isGameOver() const {
@@ -93,14 +117,14 @@ void MatamStory::play() {
     if (winner && winner->getLevel() == 10) {
         printWinner(*winner);
     } else {
-       printNoWinners();
+        printNoWinners();
     }
 }
 
 
 void MatamStory::createPlayer(unique_ptr<Character> character, const string& name,const string& job) {
     if (job == "Warrior") {
-       players.push_back(std::make_unique<Warrior>(name, std::move(character)));
+        players.push_back(std::make_unique<Warrior>(name, std::move(character)));
     } else if (job == "Magician") {
         players.push_back(std::make_unique<Magician>(name, std::move(character)));
     } else if (job == "Archer") {
@@ -175,16 +199,16 @@ void MatamStory :: checkIfDead(Player& player) {
         m_turnIndex++;
     }
 }
-    /*if(!(player.getCurrentHP())){
-        auto it = players.begin();
-        for(; it != players.end(); ++it){
-            if ((*it)->getName() == player.getName()) {
-                it = players.erase(it); // Remove the player and update the iterator
-            } else {
-                ++it; // Move to the next player
-            }
+/*if(!(player.getCurrentHP())){
+    auto it = players.begin();
+    for(; it != players.end(); ++it){
+        if ((*it)->getName() == player.getName()) {
+            it = players.erase(it); // Remove the player and update the iterator
+        } else {
+            ++it; // Move to the next player
         }
     }
+}
 }*/
 
 

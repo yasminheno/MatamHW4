@@ -17,9 +17,10 @@ public:
     Warrior(const Warrior &warrior) = default;
     Warrior &operator=(const Warrior &warrior) = default;
     ~Warrior() override = default;
-    Player* clone() const override;
+    std::unique_ptr<Player> clone() const override;
     string getJob() const override;
-    virtual void Weaken(const int& hp) override;
+    void Weaken(const int& hp) override;
+     int getCombatPower() override;
 
    // int getCombatPower() override;
 };

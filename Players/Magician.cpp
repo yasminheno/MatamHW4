@@ -13,8 +13,8 @@ Magician::Magician(const std::string &name, const int &level, const int &force,
     return this->force + this->level;
 }*/
 
-Player *Magician::clone() const {
-    return new Magician(*this);
+std::unique_ptr<Player> Magician::clone() const {
+    return std::make_unique<Magician>(*this);
 }
 
 string Magician::getDescription() const {

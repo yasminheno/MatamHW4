@@ -2,7 +2,7 @@
 #include "string"
 #include "Utilities.h"
 using std::string;
- //_________________Event____________________________________________//
+//_________________Event____________________________________________//
 Event::Event(const string& event_name) : event_name(event_name) {};
 
 
@@ -19,7 +19,7 @@ void SolarEclipse::applyEvent(Player &player) const {
         player.setForce(player.getForce() + 1);
         player.checkOutCome(getSolarEclipseMessage(player,1));
     } else{
-        player.setForce((player.getForce() -1 ) > 0 ? player.getForce() -1 : 0);
+        player.getForce() - 1  > 0 ? player.setForce(player.getForce() - 1) : player.setForce(0);
         player.checkOutCome(getSolarEclipseMessage(player, -1));
     }
 }
@@ -43,11 +43,12 @@ void PotionsMerchant::applyEvent(Player &player) const {
         player.checkOutCome(getPotionsPurchaseMessage(player,amount));
     } else {
         if(player.getCurrentHP() < 50 &&
-        player.canPlayerPay(potion_price) && player.check_adding_HP(potion_raise)){
-            amount = 1;
-            player.checkOutCome(getPotionsPurchaseMessage(player,amount));
+           player.canPlayerPay(potion_price) && player.check_adding_HP(potion_raise)){
+            player.checkOutCome(getPotionsPurchaseMessage(player,1));
             player.decreaseCoins(potion_price);
             player.addCurrentHP(potion_raise);
+        } else {
+            player.checkOutCome(getPotionsPurchaseMessage(player,0));
         }
     }
 }
@@ -56,7 +57,7 @@ PotionsMerchant::PotionsMerchant() : SpecialEvent("PotionsMerchant"){};
 
 //_________________Encounter________________________________________//
 Encounter::Encounter(unique_ptr<Monster> monster) : Event("Encounter"),
-monster(std::move(monster)){}
+                                                    monster(std::move(monster)){}
 
 
 string Encounter::getDescription() const {
@@ -84,5 +85,9 @@ void Encounter::applyEvent(Player &player) const {
         player.decreaseCurrentHP(monster->getDamage());
         player.checkOutCome(getEncounterLostMessage(player,monster->getDamage()));
 
+    }
+    if(monster->getName() == "Balrog")
+    {
+        monster->setCombatPower(monster->getCombatPower() + 2);
     }
 }

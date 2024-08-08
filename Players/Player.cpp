@@ -61,8 +61,8 @@ Player &Player::operator=(const Player &other) {
 
 
 
-void Player::setForce(const int &force) {
-    this->force += force;
+void Player::setForce(const int& force) {
+    this->force = force;
 }
 
 string Player::getCharacter() const {

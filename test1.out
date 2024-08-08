@@ -29,7 +29,7 @@ Leader board is as follows:
 Ranking    Player Name     Level     Force HP    Coins
 1          Daniel          2         5     140   12
 2          Regev           1         5     50    10
-3          Baraa           1         5     0     10
+3          Baraa           1         5     0     20
 
 ----------------------------------------
 
@@ -43,14 +43,14 @@ Daniel was affected by a solar eclipse! their force has changed by -1!
 Turn: 5
 Player: Regev, Magician with RiskTaking character (level 1, force 5)
 Event: PotionsMerchant
-Regev lost the encounter and took 50 damage!
+Regev bought 0 potions!
 
 Round has ended!
 Leader board is as follows:
 Ranking    Player Name     Level     Force HP    Coins
 1          Daniel          2         9     140   12
 2          Regev           1         5     50    10
-3          Baraa           1         5     0     10
+3          Baraa           1         5     0     20
 
 ----------------------------------------
 
@@ -71,7 +71,7 @@ Leader board is as follows:
 Ranking    Player Name     Level     Force HP    Coins
 1          Daniel          3         9     130   14
 2          Regev           1         5     0     10
-3          Baraa           1         5     0     10
+3          Baraa           1         5     0     20
 
 ----------------------------------------
 
@@ -79,18 +79,179 @@ New round starts!
 
 Turn: 8
 Player: Daniel, Warrior with Responsible character (level 3, force 9)
-Event: Balrog (power 15, loot 100, damage 9001)
-Daniel lost the encounter and took 9001 damage!
+Event: Balrog (power 17, loot 100, damage 9001)
+Daniel won the encounter, gained 100 coins and leveled up!
 
 Round has ended!
 Leader board is as follows:
 Ranking    Player Name     Level     Force HP    Coins
-1          Daniel          3         9     0     14
+1          Daniel          4         9     120   114
 2          Regev           1         5     0     10
-3          Baraa           1         5     0     10
+3          Baraa           1         5     0     20
+
+----------------------------------------
+
+New round starts!
+
+Turn: 9
+Player: Daniel, Warrior with Responsible character (level 4, force 9)
+Event: SolarEclipse
+Daniel was affected by a solar eclipse! their force has changed by -1!
+
+Round has ended!
+Leader board is as follows:
+Ranking    Player Name     Level     Force HP    Coins
+1          Daniel          4         17    120   114
+2          Regev           1         5     0     10
+3          Baraa           1         5     0     20
+
+----------------------------------------
+
+New round starts!
+
+Turn: 10
+Player: Daniel, Warrior with Responsible character (level 4, force 17)
+Event: PotionsMerchant
+Daniel bought 3 potions!
+
+Round has ended!
+Leader board is as follows:
+Ranking    Player Name     Level     Force HP    Coins
+1          Daniel          4         17    150   99
+2          Regev           1         5     0     10
+3          Baraa           1         5     0     20
+
+----------------------------------------
+
+New round starts!
+
+Turn: 11
+Player: Daniel, Warrior with Responsible character (level 4, force 17)
+Event: Snail (power 5, loot 2, damage 10)
+Daniel won the encounter, gained 2 coins and leveled up!
+
+Round has ended!
+Leader board is as follows:
+Ranking    Player Name     Level     Force HP    Coins
+1          Daniel          5         17    140   101
+2          Regev           1         5     0     10
+3          Baraa           1         5     0     20
+
+----------------------------------------
+
+New round starts!
+
+Turn: 12
+Player: Daniel, Warrior with Responsible character (level 5, force 17)
+Event: Pack of 2 members (power 24, loot 10, damage 50)
+Daniel won the encounter, gained 10 coins and leveled up!
+
+Round has ended!
+Leader board is as follows:
+Ranking    Player Name     Level     Force HP    Coins
+1          Daniel          6         17    130   111
+2          Regev           1         5     0     10
+3          Baraa           1         5     0     20
+
+----------------------------------------
+
+New round starts!
+
+Turn: 13
+Player: Daniel, Warrior with Responsible character (level 6, force 17)
+Event: Balrog (power 19, loot 100, damage 9001)
+Daniel won the encounter, gained 100 coins and leveled up!
+
+Round has ended!
+Leader board is as follows:
+Ranking    Player Name     Level     Force HP    Coins
+1          Daniel          7         17    120   211
+2          Regev           1         5     0     10
+3          Baraa           1         5     0     20
+
+----------------------------------------
+
+New round starts!
+
+Turn: 14
+Player: Daniel, Warrior with Responsible character (level 7, force 17)
+Event: SolarEclipse
+Daniel was affected by a solar eclipse! their force has changed by -1!
+
+Round has ended!
+Leader board is as follows:
+Ranking    Player Name     Level     Force HP    Coins
+1          Daniel          7         33    120   211
+2          Regev           1         5     0     10
+3          Baraa           1         5     0     20
+
+----------------------------------------
+
+New round starts!
+
+Turn: 15
+Player: Daniel, Warrior with Responsible character (level 7, force 33)
+Event: PotionsMerchant
+Daniel bought 3 potions!
+
+Round has ended!
+Leader board is as follows:
+Ranking    Player Name     Level     Force HP    Coins
+1          Daniel          7         33    150   196
+2          Regev           1         5     0     10
+3          Baraa           1         5     0     20
+
+----------------------------------------
+
+New round starts!
+
+Turn: 16
+Player: Daniel, Warrior with Responsible character (level 7, force 33)
+Event: Snail (power 5, loot 2, damage 10)
+Daniel won the encounter, gained 2 coins and leveled up!
+
+Round has ended!
+Leader board is as follows:
+Ranking    Player Name     Level     Force HP    Coins
+1          Daniel          8         33    140   198
+2          Regev           1         5     0     10
+3          Baraa           1         5     0     20
+
+----------------------------------------
+
+New round starts!
+
+Turn: 17
+Player: Daniel, Warrior with Responsible character (level 8, force 33)
+Event: Pack of 2 members (power 24, loot 10, damage 50)
+Daniel won the encounter, gained 10 coins and leveled up!
+
+Round has ended!
+Leader board is as follows:
+Ranking    Player Name     Level     Force HP    Coins
+1          Daniel          9         33    130   208
+2          Regev           1         5     0     10
+3          Baraa           1         5     0     20
+
+----------------------------------------
+
+New round starts!
+
+Turn: 18
+Player: Daniel, Warrior with Responsible character (level 9, force 33)
+Event: Balrog (power 21, loot 100, damage 9001)
+Daniel won the encounter, gained 100 coins and leveled up!
+
+Round has ended!
+Leader board is as follows:
+Ranking    Player Name     Level     Force HP    Coins
+1          Daniel          10        33    120   308
+2          Regev           1         5     0     10
+3          Baraa           1         5     0     20
 
 ----------------------------------------
 
 Game is over!
-There are no winners in this game.
-Better luck next time!
+The winner is: Daniel
+Congratulations!
+

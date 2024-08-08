@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Warrior.h"
 #include "string"
+#include <vector>
 using std::string;
 
 Warrior::Warrior(const string &name, unique_ptr<Character> character) : Player(name,INITIAL_LEVEL,INITIAL_FORCE,
@@ -12,13 +13,14 @@ Warrior::Warrior(const string &name,const int& level,const int& force,const int&
 int& max_HP,const int& coins, unique_ptr<Character> character) :
         Player(name,level,force,current_HP,max_HP,coins,std::move(character)){};
 
-/*int Warrior::getCombatPower() {
+int Warrior::getCombatPower() {
     return (this->force) * 2 + this->level;
-}*/
-
-Player *Warrior::clone() const {
-    return new Warrior(*this);
 }
+
+std::unique_ptr<Player> Warrior::clone() const {
+    return std::make_unique<Warrior>(*this);
+}
+
 
 string Warrior::getDescription() const {
     std::ostringstream os;

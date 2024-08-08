@@ -35,7 +35,7 @@ public:
     int& current_HP,const int& max_HP,const int& coins, unique_ptr<Character> character);
     Player(const Player &other);
     virtual ~Player() = default;
-    virtual Player* clone() const = 0;
+    virtual std::unique_ptr<Player> clone() const = 0;
     Player &operator=(const Player &other);
 
 
@@ -53,6 +53,7 @@ public:
     virtual void setForce(const int& force);
     virtual void addCurrentHP(const int& hp);
     virtual void decreaseCurrentHP(const int& damage);
+
     virtual void Weaken(const int& hp) = 0;
 
 

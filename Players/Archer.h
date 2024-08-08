@@ -16,7 +16,7 @@ public:
     Archer(const Archer &archer) = default;
     Archer &operator=(const Archer &archer) = default;
     ~Archer() override = default;
-    Player* clone() const override;
+    std::unique_ptr<Player> clone() const override;
     string getJob() const override;
     void Weaken(const int& hp) override;
 

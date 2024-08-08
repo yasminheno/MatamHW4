@@ -12,7 +12,7 @@ public:
     Magician(const Magician &magician) = default;
     Magician &operator=(const Magician &magician) = default;
     ~Magician() override = default;
-    Player* clone() const override;
+    std::unique_ptr<Player> clone() const override;
     string getJob() const override;
     void setForce(const int& force) override;
     void Weaken(const int& hp) override;
