@@ -1,7 +1,8 @@
+#pragma once
 #include "Player.h"
 #include "string"
 using std::string;
-#pragma once
+
 
 const int ARCHER_INITIAL_COINS = 20;
 

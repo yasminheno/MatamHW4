@@ -1,6 +1,7 @@
+#pragma once
 #include "Player.h"
 #include "string"
-#pragma once
+
 
 class Magician : public Player{
 public:

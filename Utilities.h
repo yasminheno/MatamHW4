@@ -5,6 +5,7 @@
 
 #include "Players/Player.h"
 #include "Events/Event.h"
+#include "Monsters/Monster.h"
 
 /**
  * Prints the start message of the game
