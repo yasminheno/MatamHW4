@@ -8,7 +8,7 @@
 #include "string"
 #include <vector>
 #include <iterator>
-
+#include <algorithm>
 
 
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
