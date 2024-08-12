@@ -64,9 +64,8 @@ Encounter::Encounter(unique_ptr<Monster> monster) : Event("Encounter"),
 
 
 string Encounter::getDescription() const {
-    try {
         if (!monster) {
-            throw std::runtime_error("");
+            throw std::runtime_error("Monster is null");
         }
 
         if (monster->getName() != "Pack") {
@@ -81,10 +80,6 @@ string Encounter::getDescription() const {
                " (power " + std::to_string(pack.getCombatPower()) +
                ", loot " + std::to_string(pack.getLoot()) +
                ", damage " + std::to_string(pack.getDamage()) + ")";
-    } catch (const std::bad_cast& e) {
-        std::cerr << "Error: Bad cast to Pack: " << e.what() << std::endl;
-        return "Invalid Monster: Bad cast";
-    }
 }
 
 void Encounter::applyEvent(Player &player) const {

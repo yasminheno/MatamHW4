@@ -124,9 +124,8 @@ void MatamStory::play() {
 
 //fix thiese  players.push_back(std::make_unique<Player>(
 void MatamStory::createPlayer(unique_ptr<Character> character, const string& name,const string& job) {
-    try {
-        std::unique_ptr<Player> player;
 
+        std::unique_ptr<Player> player;
         if (job == "Warrior") {
             player = std::make_unique<Player>(name, std::move(character), std::make_unique<Warrior>());
         } else if (job == "Magician") {
@@ -139,13 +138,9 @@ void MatamStory::createPlayer(unique_ptr<Character> character, const string& nam
 
         player->getJob_ptr()->Initialize(*player);
         players.push_back(std::move(player));
-    } catch (const std::exception& e) {
-        std::cerr << "Error creating player: " << e.what() << std::endl;
-    }
 }
 
     void MatamStory :: readEvents(std::istream& eventsStream) {
-        try {
             string eventType, monster;
             while (eventsStream >> eventType) {
                 if (eventType == "Snail") {
@@ -164,15 +159,11 @@ void MatamStory::createPlayer(unique_ptr<Character> character, const string& nam
                     throw std::runtime_error("");
                 }
             }
-        } catch (const std::exception& e) {
-            std::cerr << "Invalid Events Files " << e.what() << std::endl;
-        }
     }
 
 
 
 void MatamStory :: readPlayers(std::istream& playersStream){
-    try {
         string name, word, character, job;
         while (playersStream >> name >> job >> character) {
             if (character == "Responsible") {
@@ -193,17 +184,12 @@ void MatamStory :: readPlayers(std::istream& playersStream){
             std::cerr << "Invalid Players File" << std::endl;
             return;
         }
-
-    } catch (const std::exception &e) {
-        std::cerr << "Invalid Players File" << e.what() << std::endl;
-    }
 }
 
 
 
 
 void MatamStory::add_Pack(std::istream& eventsStream) {
-    try {
         int numMembers;
         std::string monsterType;
         if (!(eventsStream >> numMembers) || numMembers < 2) {
@@ -229,7 +215,4 @@ void MatamStory::add_Pack(std::istream& eventsStream) {
             }
         }
         events.push_back(std::make_unique<Encounter>(std::make_unique<Pack>(std::move(members))));
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
-    }
 }
