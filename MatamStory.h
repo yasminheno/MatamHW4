@@ -44,7 +44,6 @@ private:
 
     void readPlayers(std::istream &playersStream);
 
-    void checkIfDead(Player& player);
 
     bool checkIfStop(Player& player) const;
 

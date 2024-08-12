@@ -15,10 +15,7 @@ add_executable(MatamHW4
         MatamStory.h
         Utilities.cpp
         Utilities.h
-        Monsters/Monster.h
         Players/Player.cpp
-        Monsters/Monster.cpp
-        Monsters/Monster.cpp
         Players/Character.h
         Players/Character.cpp
         Players/Warrior.h

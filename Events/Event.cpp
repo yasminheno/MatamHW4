@@ -1,6 +1,7 @@
 #include "Event.h"
 #include "string"
 #include "Utilities.h"
+#include <iostream>
 using std::string;
 //_________________Event____________________________________________//
 Event::Event(const string& event_name) : event_name(event_name) {};
@@ -23,6 +24,8 @@ void SolarEclipse::applyEvent(Player &player) const {
         player.checkOutCome(getSolarEclipseMessage(player, -1));
     }
 }
+
+
 
 SolarEclipse::SolarEclipse() : SpecialEvent("SolarEclipse"){};
 
@@ -61,18 +64,27 @@ Encounter::Encounter(unique_ptr<Monster> monster) : Event("Encounter"),
 
 
 string Encounter::getDescription() const {
-    if(monster->getName() != "Pack"){
-        return monster->getName() + " (power " + (std::to_string(monster->getCombatPower())) +
-               + ", loot " + std::to_string(monster->getLoot()) +
-               ", damage " + std::to_string(monster->getDamage())+")";
-    }
-    const Pack& pack = static_cast<const Pack&>(*monster);
-    size_t size = pack.getSize();
+    try {
+        if (!monster) {
+            throw std::runtime_error("");
+        }
 
-    return pack.getName() + " of " + std::to_string(size) + " members" +
-           " (power " + std::to_string(pack.getCombatPower()) +
-           ", loot " + std::to_string(pack.getLoot()) +
-           ", damage " + std::to_string(pack.getDamage()) + ")";
+        if (monster->getName() != "Pack") {
+            return monster->getName() + " (power " + (std::to_string(monster->getCombatPower())) +
+                   +", loot " + std::to_string(monster->getLoot()) +
+                   ", damage " + std::to_string(monster->getDamage()) + ")";
+        }
+        const Pack &pack = static_cast<const Pack &>(*monster);
+        size_t size = pack.getSize();
+
+        return pack.getName() + " of " + std::to_string(size) + " members" +
+               " (power " + std::to_string(pack.getCombatPower()) +
+               ", loot " + std::to_string(pack.getLoot()) +
+               ", damage " + std::to_string(pack.getDamage()) + ")";
+    } catch (const std::bad_cast& e) {
+        std::cerr << "Error: Bad cast to Pack: " << e.what() << std::endl;
+        return "Invalid Monster: Bad cast";
+    }
 }
 
 void Encounter::applyEvent(Player &player) const {

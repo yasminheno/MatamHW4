@@ -124,48 +124,50 @@ void MatamStory::play() {
 
 //fix thiese  players.push_back(std::make_unique<Player>(
 void MatamStory::createPlayer(unique_ptr<Character> character, const string& name,const string& job) {
-    std::unique_ptr<Player> player;
+    try {
+        std::unique_ptr<Player> player;
 
-    if (job == "Warrior") {
-        player = std::make_unique<Player>(name, std::move(character), std::make_unique<Warrior>());
-    } else if (job == "Magician") {
-        player = std::make_unique<Player>(name, std::move(character), std::make_unique<Magician>());
-    } else if (job == "Archer") {
-        player = std::make_unique<Player>(name, std::move(character), std::make_unique<Archer>());
-    } else {
-        throw std::runtime_error("Invalid job type");
+        if (job == "Warrior") {
+            player = std::make_unique<Player>(name, std::move(character), std::make_unique<Warrior>());
+        } else if (job == "Magician") {
+            player = std::make_unique<Player>(name, std::move(character), std::make_unique<Magician>());
+        } else if (job == "Archer") {
+            player = std::make_unique<Player>(name, std::move(character), std::make_unique<Archer>());
+        } else {
+            throw std::runtime_error("Invalid job type");
+        }
+
+        player->getJob_ptr()->Initialize(*player);
+        players.push_back(std::move(player));
+    } catch (const std::exception& e) {
+        std::cerr << "Error creating player: " << e.what() << std::endl;
     }
-
-    // Initialize the player with job-specific settings
-    player->getJob_ptr()->Initialize(*player);
-
-    players.push_back(std::move(player));
 }
 
     void MatamStory :: readEvents(std::istream& eventsStream) {
-    try {
-        string eventType, monster;
-        while (eventsStream >> eventType) {
-            if (eventType == "Snail") {
-                events.push_back(std::make_unique<Encounter>(std::make_unique<Snail>()));
-            } else if (eventType == "Balrog") {
-                events.push_back(std::make_unique<Encounter>(std::make_unique<Balrog>()));
-            } else if (eventType == "Slime") {
-                events.push_back(std::make_unique<Encounter>(std::make_unique<Slime>()));
-            } else if (eventType == "SolarEclipse") {
-                events.push_back(std::make_unique<SolarEclipse>());
-            } else if (eventType == "PotionsMerchant") {
-                events.push_back(std::make_unique<PotionsMerchant>());
-            } else if (eventType == "Pack") {
-                add_Pack(eventsStream);
-            } else {
-                throw std::runtime_error("Invalid event type");
+        try {
+            string eventType, monster;
+            while (eventsStream >> eventType) {
+                if (eventType == "Snail") {
+                    events.push_back(std::make_unique<Encounter>(std::make_unique<Snail>()));
+                } else if (eventType == "Balrog") {
+                    events.push_back(std::make_unique<Encounter>(std::make_unique<Balrog>()));
+                } else if (eventType == "Slime") {
+                    events.push_back(std::make_unique<Encounter>(std::make_unique<Slime>()));
+                } else if (eventType == "SolarEclipse") {
+                    events.push_back(std::make_unique<SolarEclipse>());
+                } else if (eventType == "PotionsMerchant") {
+                    events.push_back(std::make_unique<PotionsMerchant>());
+                } else if (eventType == "Pack") {
+                    add_Pack(eventsStream);
+                } else {
+                    throw std::runtime_error("");
+                }
             }
+        } catch (const std::exception& e) {
+            std::cerr << "Invalid Events Files " << e.what() << std::endl;
         }
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
     }
-}
 
 
 
@@ -198,49 +200,37 @@ void MatamStory :: readPlayers(std::istream& playersStream){
     }
 }
 
-void MatamStory :: checkIfDead(Player& player) {
-    m_turnIndex = 0;
-    for (size_t i = 0; i < players.size(); i++) {
-        if (!(player.getCurrentHP())) {
-            players.erase(players.begin() + m_turnIndex);
-        }
-        m_turnIndex++;
-    }
-}
-/*if(!(player.getCurrentHP())){
-    auto it = players.begin();
-    for(; it != players.end(); ++it){
-        if ((*it)->getName() == player.getName()) {
-            it = players.erase(it); // Remove the player and update the iterator
-        } else {
-            ++it; // Move to the next player
-        }
-    }
-}
-}*/
+
 
 
 void MatamStory::add_Pack(std::istream& eventsStream) {
-    int numMembers;
-    std::string monsterType;
-    eventsStream >> numMembers;
-
-    std::vector<std::unique_ptr<Monster>> members;
-    for (int i = 0; i < numMembers; ++i) {
-        eventsStream >> monsterType;
-
-        if (monsterType == "Snail") {
-            members.push_back(std::make_unique<Snail>());
-        } else if (monsterType == "Balrog") {
-            members.push_back(std::make_unique<Balrog>());
-        } else if (monsterType == "Slime") {
-            members.push_back(std::make_unique<Slime>());
-        } else if (monsterType == "Pack") {
-            std::vector<std::unique_ptr<Monster>> subPackMembers;
-            add_Pack(eventsStream);
-            members.push_back(std::make_unique<Pack>(std::move(subPackMembers)));
+    try {
+        int numMembers;
+        std::string monsterType;
+        if (!(eventsStream >> numMembers) || numMembers < 2) {
+            throw std::runtime_error("Invalid Events File");
         }
+        std::vector<std::unique_ptr<Monster>> members;
+        for (int i = 0; i < numMembers; ++i) {
+            if (!(eventsStream >> monsterType)) {
+                throw std::runtime_error("Invalid Events File");
+            }
+            if (monsterType == "Snail") {
+                members.push_back(std::make_unique<Snail>());
+            } else if (monsterType == "Balrog") {
+                members.push_back(std::make_unique<Balrog>());
+            } else if (monsterType == "Slime") {
+                members.push_back(std::make_unique<Slime>());
+            } else if (monsterType == "Pack") {
+                std::vector<std::unique_ptr<Monster>> subPackMembers;
+                add_Pack(eventsStream);
+                members.push_back(std::make_unique<Pack>(std::move(subPackMembers)));
+            } else {
+                throw std::runtime_error("Invalid monster type");
+            }
+        }
+        events.push_back(std::make_unique<Encounter>(std::make_unique<Pack>(std::move(members))));
+    } catch (const std::exception& e) {
+        std::cerr <<  e.what() << std::endl;
     }
-
-    events.push_back(std::make_unique<Encounter>(std::make_unique<Pack>(std::move(members))));
 }
