@@ -3,8 +3,9 @@
 
 #include <string>
 #include "Character.h"
-using std::string;
+#include "Job.h"
 #include <memory>
+using std::string;
 using std::unique_ptr;
 const int INITIAL_LEVEL = 1;
 const int INITIAL_COINS = 10;
@@ -22,6 +23,7 @@ protected:
    int max_HP;
    int coins;
    unique_ptr<Character> character;
+   unique_ptr<Job> job;
    string outcome;
 
 
@@ -29,17 +31,20 @@ protected:
 
 
 
+
+
 public:
-    explicit Player(const string &name, unique_ptr<Character> character);
+    explicit Player(const string &name, unique_ptr<Character> character, unique_ptr<Job> job);
     Player(const string& name,const int& level,const int& force,const
-    int& current_HP,const int& max_HP,const int& coins, unique_ptr<Character> character);
+    int& current_HP,const int& max_HP,const int& coins, unique_ptr<Character> character, unique_ptr<Job> job);
     Player(const Player &other);
     virtual ~Player() = default;
-    virtual std::unique_ptr<Player> clone() const = 0;
+ //   virtual std::unique_ptr<Player> clone() const = 0;
     Player &operator=(const Player &other);
 
 
-    virtual string getDescription() const = 0;
+
+    virtual string getDescription() const;
 
     string getName() const;
     virtual int getLevel() const;
@@ -47,15 +52,21 @@ public:
     virtual int getHealthPoints() const;
     virtual int getCoins() const;
     string getCharacter() const;
+    unique_ptr<Character> getCharacter_ptr() const;
+    string getJobType() const;
+    unique_ptr<Job> getJob_ptr() const;
+
     int getCurrentHP() const;
+
     virtual int getMaxHP() const;
+    virtual std::unique_ptr<Player> clone() const;
 
     virtual void setForce(const int& force);
     virtual void addCurrentHP(const int& hp);
     virtual void decreaseCurrentHP(const int& damage);
+    void setCoins(const int& coins);
 
-    virtual void Weaken(const int& hp) = 0;
-
+    void setMaxHP(const int& hp);
 
     //additional helping functions
 
@@ -74,11 +85,11 @@ public:
 
     void decreaseCoins(int coins);
 
-    virtual string getJob() const = 0;
-
     virtual void checkOutCome(const string& outcome);
 
     virtual string getOutCome();
+
+    void setCurrentHP(const int& hp);
 
 };
 

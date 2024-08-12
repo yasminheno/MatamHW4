@@ -41,7 +41,8 @@ void PrintSortedBoard(const std::vector<std::unique_ptr<Player>>& players) {
     std::vector<std::unique_ptr<Player>> sortedPlayers;
 
     // Clone players for sorting
-    for (const auto& player : players) {
+    sortedPlayers.reserve(players.size());
+for (const auto& player : players) {
         sortedPlayers.push_back(player->clone());
     }
 
@@ -121,20 +122,27 @@ void MatamStory::play() {
     }
 }
 
-
+//fix thiese  players.push_back(std::make_unique<Player>(
 void MatamStory::createPlayer(unique_ptr<Character> character, const string& name,const string& job) {
+    std::unique_ptr<Player> player;
+
     if (job == "Warrior") {
-        players.push_back(std::make_unique<Warrior>(name, std::move(character)));
+        player = std::make_unique<Player>(name, std::move(character), std::make_unique<Warrior>());
     } else if (job == "Magician") {
-        players.push_back(std::make_unique<Magician>(name, std::move(character)));
+        player = std::make_unique<Player>(name, std::move(character), std::make_unique<Magician>());
     } else if (job == "Archer") {
-        players.push_back(std::make_unique<Archer>(name, std::move(character)));
+        player = std::make_unique<Player>(name, std::move(character), std::make_unique<Archer>());
     } else {
         throw std::runtime_error("Invalid job type");
     }
+
+    // Initialize the player with job-specific settings
+    player->getJob_ptr()->Initialize(*player);
+
+    players.push_back(std::move(player));
 }
 
-void MatamStory :: readEvents(std::istream& eventsStream) {
+    void MatamStory :: readEvents(std::istream& eventsStream) {
     try {
         string eventType, monster;
         while (eventsStream >> eventType) {
@@ -216,7 +224,6 @@ void MatamStory::add_Pack(std::istream& eventsStream) {
     int numMembers;
     std::string monsterType;
     eventsStream >> numMembers;
-
 
     std::vector<std::unique_ptr<Monster>> members;
     for (int i = 0; i < numMembers; ++i) {

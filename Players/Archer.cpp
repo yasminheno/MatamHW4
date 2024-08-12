@@ -1,34 +1,26 @@
 #include <sstream>
-#include "Archer.h"
 #include "Player.h"
+#include "Archer.h"
 #include "string"
+#include <vector>
 using std::string;
 
+void Archer::Initialize(Player &player) const {
+    player.setCoins(ARCHER_INITIAL_COINS);
+}
 
-Archer::Archer(const std::string &name, unique_ptr<Character> character) : Player(name,INITIAL_LEVEL,INITIAL_FORCE,
-                                                                                  INITIAL_MAXHP
-        , INITIAL_MAXHP,ARCHER_INITIAL_COINS,std::move(character)) {};
+int Archer::getCombatPower(Player& player) const {
+    return player.getForce() + player.getLevel();  // Adjust this formula if necessary for archers
+}
 
-
-
-Archer::Archer(const std::string &name, const int &level, const int &force,
-                   const int &current_HP, const int &max_HP, const int &coins,
-                   unique_ptr<Character> character) :
-        Player(name,level,force,current_HP,max_HP,ARCHER_INITIAL_COINS, std::move(character)) {};
-
-/*int Archer::getCombatPower() {
-        return this->force + this->level;
-}*/
-
-
-std::unique_ptr<Player> Archer::clone() const {
+std::unique_ptr<Job> Archer::clone() const {
     return std::make_unique<Archer>(*this);
 }
 
-string Archer::getDescription() const {
+string Archer::getDescription(Player& player) const {
     std::ostringstream os;
-    os << name << ", " << "Archer" << " with " << character->getDescription()
-       << " character (level " << level << ", force " << force << ")";
+    os << player.getName() << ", " << "Archer" << " with " << player.getCharacter()
+       << " character (level " << player.getLevel() << ", force " << player.getForce() << ")";
     return os.str();
 }
 
@@ -36,29 +28,15 @@ string Archer::getJob() const {
     return "Archer";
 }
 
-/*Archer::Archer(const string &name, unique_ptr<Character> character) : Player(name,INITIAL_LEVEL,INITIAL_FORCE,
-                                            INITIAL_MAXHP,INITIAL_MAXHP,
-                                            ARCHER_INITIAL_COINS, std::move(character)) {};
-
-Archer::Archer(const string &name,const int& level,const int& force,const int& current_HP,const
-int& max_HP,const int& coins, unique_ptr<Character> character) :
-        Player(name,level,force,current_HP,max_HP,coins, std::move(character)){};
-
-Player *Archer::clone() const {
-    return new Archer(*this);
-}
-string Archer::getDescription() const {
-    std::ostringstream os;
-    os << name << ", " << "Archer" << " with " << character->getDescription()
-       << " character (level " << level << ", force " << force << ")";
-    return os.str();
-}
-
-string Archer::getJob() const {
-    return "Archer";
-}*/
-
-void Archer::Weaken(const int &hp) {
+void Archer::Weaken(const int &hp, Player& player) const {
     return;
 }
 
+std::unique_ptr<Player> Archer::clonePlayer(const Player &player) const {
+    return std::make_unique<Player>(
+            player.getName(), player.getLevel(), player.getForce(),
+            player.getCurrentHP(), player.getMaxHP(), player.getCoins(),
+            player.getCharacter_ptr(),  // Clone the character
+            this->clone()  // Clone the Job (Archer in this case)
+    );
+}

@@ -6,21 +6,21 @@ using std::string;
 
 const int ARCHER_INITIAL_COINS = 20;
 
-class Archer : public Player{
-
+class Archer : public Job {
 public:
-    string getDescription() const override;
-    explicit Archer(const string &name, unique_ptr<Character> character);
-    Archer(const string& name,const int& level,const int& force,
-           const int& current_HP,const int& max_HP,const int& coins, unique_ptr<Character> character);
+    Archer() = default;
+    string getDescription(Player& player) const override;
+    void Initialize(Player& player) const override;
+    int getCombatPower(Player& player) const override;
 
     Archer(const Archer &archer) = default;
     Archer &operator=(const Archer &archer) = default;
     ~Archer() override = default;
-    std::unique_ptr<Player> clone() const override;
-    string getJob() const override;
-    void Weaken(const int& hp) override;
 
-    //int getCombatPower() override;
+    std::unique_ptr<Job> clone() const override;
+    string getJob() const override;
+
+    void Weaken(const int &hp, Player &player) const override;
+    std::unique_ptr<Player> clonePlayer(const Player& player) const override;
 };
 

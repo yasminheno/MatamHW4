@@ -6,7 +6,7 @@
 
 #include "Players/Player.h"
 #include "Events/Event.h"
-#include "Monsters/Monster.h"
+#include "Events/Monster.h"
 
 using std::vector;
 class MatamStory{

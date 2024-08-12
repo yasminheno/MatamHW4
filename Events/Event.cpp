@@ -14,7 +14,7 @@ string SolarEclipse::getDescription() const {
 }
 
 void SolarEclipse::applyEvent(Player &player) const {
-    if(player.getJob() == "Magician")
+    if(player.getJobType() == "Magician")
     {
         player.setForce(player.getForce() + 1);
         player.checkOutCome(getSolarEclipseMessage(player,1));
@@ -76,11 +76,12 @@ string Encounter::getDescription() const {
 }
 
 void Encounter::applyEvent(Player &player) const {
-    if(player.getCombatPower() > monster->getCombatPower()) {
+    if(player.getJob_ptr()->getCombatPower(player) > monster->getCombatPower()) {
         player.levelUp();
         player.addCoins(monster->getLoot());
         player.checkOutCome(getEncounterWonMessage(player, monster->getLoot()));
-        player.Weaken(10);
+        if(player.getJobType() == "Warrior")
+        player.getJob_ptr()->Weaken(10,player);
     } else {
         player.decreaseCurrentHP(monster->getDamage());
         player.checkOutCome(getEncounterLostMessage(player,monster->getDamage()));

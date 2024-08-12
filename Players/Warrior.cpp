@@ -5,27 +5,25 @@
 #include <vector>
 using std::string;
 
-Warrior::Warrior(const string &name, unique_ptr<Character> character) : Player(name,INITIAL_LEVEL,INITIAL_FORCE,
-                                              WARRIOR_INITIAL_MAXHP
-        , WARRIOR_INITIAL_MAXHP,INITIAL_COINS,std::move(character)) {};
 
-Warrior::Warrior(const string &name,const int& level,const int& force,const int& current_HP,const
-int& max_HP,const int& coins, unique_ptr<Character> character) :
-        Player(name,level,force,current_HP,max_HP,coins,std::move(character)){};
-
-int Warrior::getCombatPower() {
-    return (this->force) * 2 + this->level;
+void Warrior::Initialize(Player &player) const{
+    player.setMaxHP(WARRIOR_INITIAL_MAXHP);
+    player.setCurrentHP(WARRIOR_INITIAL_MAXHP);
 }
 
-std::unique_ptr<Player> Warrior::clone() const {
+int Warrior::getCombatPower(Player& player) const {
+    return (player.getForce()) * 2 + player.getLevel();
+}
+
+std::unique_ptr<Job> Warrior::clone() const {
     return std::make_unique<Warrior>(*this);
 }
 
 
-string Warrior::getDescription() const {
+string Warrior::getDescription(Player& player) const {
     std::ostringstream os;
-    os << name << ", " << "Warrior" << " with " << character->getDescription()
-        << " character (level " << level << ", force " << force << ")";
+    os << player.getName() << ", " << "Warrior" << " with " << player.getCharacter()
+        << " character (level " << player.getLevel() << ", force " << player.getForce() << ")";
     return os.str();
 }
 
@@ -33,12 +31,21 @@ string Warrior::getJob() const {
     return "Warrior";
 }
 
-void Warrior::Weaken(const int &hp){
-    if(current_HP - 10 >= 0)
+void Warrior::Weaken(const int &hp, Player& player)const {
+    if(player.getCurrentHP() - hp >= 0)
     {
-        current_HP -= 10;
+        player.setCurrentHP(player.getCurrentHP()-hp);
     } else{
-        current_HP = 0;
+        player.setCurrentHP(0);
     }
+}
+
+std::unique_ptr<Player> Warrior::clonePlayer(const Player &player) const {
+    return std::make_unique<Player>(
+            player.getName(), player.getLevel(), player.getForce(),
+            player.getCurrentHP(), player.getMaxHP(), player.getCoins(),
+            player.getCharacter_ptr(),  // Clone the character
+            this->clone()  // Clone the Job (Warrior in this case)
+    );
 }
 

@@ -96,6 +96,9 @@
 		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Events/Event.h">
 			<Option target="MatamHW4"/>
 		</Unit>
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Events/Monster.cpp">
+			<Option target="MatamHW4"/>
+		</Unit>
 		<Unit filename="/Users/yasminheni/ex4/MatamHW4/MatamStory.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
@@ -114,10 +117,13 @@
 		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Archer.h">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Charachter.cpp">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Character.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
-		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Charachter.h">
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Character.h">
+			<Option target="MatamHW4"/>
+		</Unit>
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Job.h">
 			<Option target="MatamHW4"/>
 		</Unit>
 		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Magician.cpp">

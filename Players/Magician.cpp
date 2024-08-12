@@ -1,26 +1,26 @@
 #include <sstream>
+#include "Player.h"
 #include "Magician.h"
+#include "string"
+#include <vector>
+using std::string;
 
-Magician::Magician(const std::string &name, unique_ptr<Character> character) : Player(name, std::move(character)){};
+void Magician::Initialize(Player &player) const {
+    return;
+}
 
+int Magician::getCombatPower(Player& player) const {
+    return player.getForce() + player.getLevel();;  // Adjust this formula if necessary for magicians
+}
 
-Magician::Magician(const std::string &name, const int &level, const int &force,
-                   const int &current_HP, const int &max_HP, const int &coins,
-                   unique_ptr<Character> character) :
-        Player(name,level,force,coins,max_HP,coins, std::move(character)) {};
-
-/*int Magician::getCombatPower() {
-    return this->force + this->level;
-}*/
-
-std::unique_ptr<Player> Magician::clone() const {
+std::unique_ptr<Job> Magician::clone() const {
     return std::make_unique<Magician>(*this);
 }
 
-string Magician::getDescription() const {
+string Magician::getDescription(Player& player) const {
     std::ostringstream os;
-    os << name << ", " << "Magician" << " with " << character->getDescription()
-       << " character (level " << level << ", force " << force << ")";
+    os << player.getName() << ", " << "Magician" << " with " << player.getCharacter()
+       << " character (level " << player.getLevel() << ", force " << player.getForce() << ")";
     return os.str();
 }
 
@@ -28,10 +28,15 @@ string Magician::getJob() const {
     return "Magician";
 }
 
-void Magician::setForce(const int &force) {
-    this->force++;
+void Magician::Weaken(const int &hp, Player& player) const {
+    return;
 }
 
-void Magician::Weaken(const int &hp) {
-    return;
+std::unique_ptr<Player> Magician::clonePlayer(const Player &player) const {
+    return std::make_unique<Player>(
+            player.getName(), player.getLevel(), player.getForce(),
+            player.getCurrentHP(), player.getMaxHP(), player.getCoins(),
+            player.getCharacter_ptr(),  // Clone the character
+            this->clone()  // Clone the Job (Magician in this case)
+    );
 }

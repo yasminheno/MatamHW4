@@ -5,15 +5,16 @@
 #include <vector>
 using std::unique_ptr;
 
-Player::Player(const string &name, unique_ptr<Character> character) : name(name), level(INITIAL_LEVEL), force(INITIAL_FORCE)
-        ,current_HP(INITIAL_MAXHP),max_HP(INITIAL_MAXHP),coins(INITIAL_COINS), character(std::move(character)){}
+Player::Player(const string &name, unique_ptr<Character> character,unique_ptr<Job> job) : name(name), level(INITIAL_LEVEL), force(INITIAL_FORCE)
+        ,current_HP(INITIAL_MAXHP),max_HP(INITIAL_MAXHP),coins(INITIAL_COINS), character(std::move(character)),
+                                                                                         job(std::move(job)){
+};
 
 
 Player::Player(const string &name,const int &level,const int &force,const int &current_HP,
-               const int &max_HP,const int &coins, unique_ptr<Character> character):
+               const int &max_HP,const int &coins, unique_ptr<Character> character, unique_ptr<Job> job):
         name(name), level(level), force(force), current_HP(current_HP), max_HP(max_HP), coins(coins),
-        character(std::move(character)){}
-
+        character(std::move(character)), job(std::move(job)){};
 
 
 string Player:: getName() const{
@@ -40,7 +41,8 @@ int Player :: getCoins() const{
 
 Player::Player(const Player &other) : name(other.name), level(other.level), force(other.force),
 current_HP(other.current_HP), max_HP(other.max_HP),
-coins(other.coins), character(other.character ? other.character->clone() : nullptr){}
+coins(other.coins), character(other.character ? other.character->clone() : nullptr),
+                                      job(other.job ? other.job->clone() : nullptr){};
 
 Player &Player::operator=(const Player &other) {
     if (this != &other) {
@@ -55,6 +57,11 @@ Player &Player::operator=(const Player &other) {
         } else {
             character = nullptr;
         }
+        if (other.job) {
+           job = unique_ptr<Job>(other.job->clone());
+        } else {
+            job = nullptr;
+        }
     }
     return *this;
 }
@@ -68,6 +75,8 @@ void Player::setForce(const int& force) {
 string Player::getCharacter() const {
     return this->character->getDescription();
 }
+
+
 
 int Player::getCurrentHP() const {
     return this->current_HP;
@@ -115,6 +124,8 @@ void Player::addCurrentHP(const int &hp) {
    if(check_adding_HP(hp))
    {
        this->current_HP += hp;
+   } else {
+       this->current_HP = max_HP;
    }
 }
 
@@ -139,7 +150,36 @@ int Player::getCombatPower() {
     return this->force + this->level;
 }
 
+string Player::getJobType() const {
+    return this->job->getJob();
+}
 
+void Player::setMaxHP(const int &hp) {
+    this->max_HP = hp;
+}
 
+void Player::setCurrentHP(const int &hp) {
+    this->current_HP = hp;
+}
 
+unique_ptr<Character> Player::getCharacter_ptr() const {
+    return std::unique_ptr<Character>(character->clone());
+}
 
+std::unique_ptr<Player> Player::clone() const {
+    return job->clonePlayer(*this);
+}
+
+string Player::getDescription() const {
+    string desc = name + ", " + job->getJob() + " with " + character->getDescription()
+       + " character (level " + std::to_string(level) + ", force " + std::to_string(force) + ")";
+    return desc;
+}
+
+void Player::setCoins(const int &coins) {
+    this->coins = coins;
+}
+
+unique_ptr<Job> Player::getJob_ptr() const {
+    return std::unique_ptr<Job>(job->clone());
+}

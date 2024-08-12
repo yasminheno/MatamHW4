@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MatamHW4.dir/Events/Event.cpp.o"
   "CMakeFiles/MatamHW4.dir/Events/Event.cpp.o.d"
+  "CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o"
+  "CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o.d"
   "CMakeFiles/MatamHW4.dir/MatamStory.cpp.o"
   "CMakeFiles/MatamHW4.dir/MatamStory.cpp.o.d"
   "CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o"
