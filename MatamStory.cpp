@@ -156,7 +156,7 @@ void MatamStory::createPlayer(unique_ptr<Character> character, const string& nam
                 } else if (eventType == "Pack") {
                     add_Pack(eventsStream);
                 } else {
-                    throw std::runtime_error("");
+                    throw std::runtime_error("Invalid Events File");
                 }
             }
     }
@@ -176,13 +176,11 @@ void MatamStory :: readPlayers(std::istream& playersStream){
                 throw std::runtime_error("Invalid character type");
             }
             if (name.length() < 3 || name.length() > 15) {
-                std::cerr << "Invalid Players File" << std::endl;
-                return;
+                throw std::runtime_error("Invalid Players File");
             }
         }
         if (players.size() < 2 || players.size() > 6 ) {
-            std::cerr << "Invalid Players File" << std::endl;
-            return;
+            throw std::runtime_error("Invalid Players File");
         }
 }
 
