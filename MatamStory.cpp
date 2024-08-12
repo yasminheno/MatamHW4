@@ -166,6 +166,7 @@ void MatamStory::createPlayer(unique_ptr<Character> character, const string& nam
             }
         } catch (const std::exception& e) {
             std::cerr << "Invalid Events Files " << e.what() << std::endl;
+            std::exit(1);
         }
     }
 
@@ -196,6 +197,7 @@ void MatamStory :: readPlayers(std::istream& playersStream){
 
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
+        std::exit(1);
 
     }
 }
