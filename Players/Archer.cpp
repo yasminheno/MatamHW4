@@ -3,6 +3,7 @@
 #include "Archer.h"
 #include "string"
 #include <vector>
+#include <memory>
 using std::string;
 
 void Archer::Initialize(Player &player) const {

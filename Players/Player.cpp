@@ -3,6 +3,7 @@
 #include "string"
 #include <utility>
 #include <vector>
+#include <memory>
 using std::unique_ptr;
 
 Player::Player(const string &name, unique_ptr<Character> character,unique_ptr<Job> job) : name(name), level(INITIAL_LEVEL), force(INITIAL_FORCE)

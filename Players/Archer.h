@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "string"
 using std::string;
+#include <memory>
 
 
 const int ARCHER_INITIAL_COINS = 20;

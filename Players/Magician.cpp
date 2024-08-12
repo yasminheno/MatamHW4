@@ -3,6 +3,7 @@
 #include "Magician.h"
 #include "string"
 #include <vector>
+#include <memory>
 using std::string;
 
 void Magician::Initialize(Player &player) const {

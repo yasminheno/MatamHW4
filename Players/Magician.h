@@ -1,6 +1,7 @@
 #pragma once
 #include "Player.h"
 #include "string"
+#include <memory>
 
 
 class Magician : public Job {
