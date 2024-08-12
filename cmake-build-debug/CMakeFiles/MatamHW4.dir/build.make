@@ -125,24 +125,10 @@ CMakeFiles/MatamHW4.dir/Players/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MatamHW4.dir/Players/Player.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yasminheni/ex4/MatamHW4/Players/Player.cpp -o CMakeFiles/MatamHW4.dir/Players/Player.cpp.s
 
-CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o: CMakeFiles/MatamHW4.dir/flags.make
-CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o: /Users/yasminheni/ex4/MatamHW4/Monsters/Monster.cpp
-CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o: CMakeFiles/MatamHW4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o -MF CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o.d -o CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o -c /Users/yasminheni/ex4/MatamHW4/Monsters/Monster.cpp
-
-CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yasminheni/ex4/MatamHW4/Monsters/Monster.cpp > CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.i
-
-CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yasminheni/ex4/MatamHW4/Monsters/Monster.cpp -o CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.s
-
 CMakeFiles/MatamHW4.dir/Players/Character.cpp.o: CMakeFiles/MatamHW4.dir/flags.make
 CMakeFiles/MatamHW4.dir/Players/Character.cpp.o: /Users/yasminheni/ex4/MatamHW4/Players/Character.cpp
 CMakeFiles/MatamHW4.dir/Players/Character.cpp.o: CMakeFiles/MatamHW4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MatamHW4.dir/Players/Character.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MatamHW4.dir/Players/Character.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MatamHW4.dir/Players/Character.cpp.o -MF CMakeFiles/MatamHW4.dir/Players/Character.cpp.o.d -o CMakeFiles/MatamHW4.dir/Players/Character.cpp.o -c /Users/yasminheni/ex4/MatamHW4/Players/Character.cpp
 
 CMakeFiles/MatamHW4.dir/Players/Character.cpp.i: cmake_force
@@ -156,7 +142,7 @@ CMakeFiles/MatamHW4.dir/Players/Character.cpp.s: cmake_force
 CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o: CMakeFiles/MatamHW4.dir/flags.make
 CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o: /Users/yasminheni/ex4/MatamHW4/Players/Magician.cpp
 CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o: CMakeFiles/MatamHW4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o -MF CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o.d -o CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o -c /Users/yasminheni/ex4/MatamHW4/Players/Magician.cpp
 
 CMakeFiles/MatamHW4.dir/Players/Magician.cpp.i: cmake_force
@@ -170,7 +156,7 @@ CMakeFiles/MatamHW4.dir/Players/Magician.cpp.s: cmake_force
 CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o: CMakeFiles/MatamHW4.dir/flags.make
 CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o: /Users/yasminheni/ex4/MatamHW4/Players/Warrior.cpp
 CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o: CMakeFiles/MatamHW4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o -MF CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o.d -o CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o -c /Users/yasminheni/ex4/MatamHW4/Players/Warrior.cpp
 
 CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.i: cmake_force
@@ -184,7 +170,7 @@ CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.s: cmake_force
 CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o: CMakeFiles/MatamHW4.dir/flags.make
 CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o: /Users/yasminheni/ex4/MatamHW4/Players/Archer.cpp
 CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o: CMakeFiles/MatamHW4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o -MF CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o.d -o CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o -c /Users/yasminheni/ex4/MatamHW4/Players/Archer.cpp
 
 CMakeFiles/MatamHW4.dir/Players/Archer.cpp.i: cmake_force
@@ -198,7 +184,7 @@ CMakeFiles/MatamHW4.dir/Players/Archer.cpp.s: cmake_force
 CMakeFiles/MatamHW4.dir/Events/Event.cpp.o: CMakeFiles/MatamHW4.dir/flags.make
 CMakeFiles/MatamHW4.dir/Events/Event.cpp.o: /Users/yasminheni/ex4/MatamHW4/Events/Event.cpp
 CMakeFiles/MatamHW4.dir/Events/Event.cpp.o: CMakeFiles/MatamHW4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MatamHW4.dir/Events/Event.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/MatamHW4.dir/Events/Event.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MatamHW4.dir/Events/Event.cpp.o -MF CMakeFiles/MatamHW4.dir/Events/Event.cpp.o.d -o CMakeFiles/MatamHW4.dir/Events/Event.cpp.o -c /Users/yasminheni/ex4/MatamHW4/Events/Event.cpp
 
 CMakeFiles/MatamHW4.dir/Events/Event.cpp.i: cmake_force
@@ -212,7 +198,7 @@ CMakeFiles/MatamHW4.dir/Events/Event.cpp.s: cmake_force
 CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o: CMakeFiles/MatamHW4.dir/flags.make
 CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o: /Users/yasminheni/ex4/MatamHW4/Events/Monster.cpp
 CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o: CMakeFiles/MatamHW4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o -MF CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o.d -o CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o -c /Users/yasminheni/ex4/MatamHW4/Events/Monster.cpp
 
 CMakeFiles/MatamHW4.dir/Events/Monster.cpp.i: cmake_force
@@ -229,7 +215,6 @@ MatamHW4_OBJECTS = \
 "CMakeFiles/MatamHW4.dir/MatamStory.cpp.o" \
 "CMakeFiles/MatamHW4.dir/Utilities.cpp.o" \
 "CMakeFiles/MatamHW4.dir/Players/Player.cpp.o" \
-"CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o" \
 "CMakeFiles/MatamHW4.dir/Players/Character.cpp.o" \
 "CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o" \
 "CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o" \
@@ -244,7 +229,6 @@ MatamHW4: CMakeFiles/MatamHW4.dir/main.cpp.o
 MatamHW4: CMakeFiles/MatamHW4.dir/MatamStory.cpp.o
 MatamHW4: CMakeFiles/MatamHW4.dir/Utilities.cpp.o
 MatamHW4: CMakeFiles/MatamHW4.dir/Players/Player.cpp.o
-MatamHW4: CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o
 MatamHW4: CMakeFiles/MatamHW4.dir/Players/Character.cpp.o
 MatamHW4: CMakeFiles/MatamHW4.dir/Players/Magician.cpp.o
 MatamHW4: CMakeFiles/MatamHW4.dir/Players/Warrior.cpp.o
@@ -253,7 +237,7 @@ MatamHW4: CMakeFiles/MatamHW4.dir/Events/Event.cpp.o
 MatamHW4: CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o
 MatamHW4: CMakeFiles/MatamHW4.dir/build.make
 MatamHW4: CMakeFiles/MatamHW4.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable MatamHW4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/yasminheni/ex4/MatamHW4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable MatamHW4"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MatamHW4.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

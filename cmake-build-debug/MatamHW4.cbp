@@ -99,16 +99,13 @@
 		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Events/Monster.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
+		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Events/Monster.h">
+			<Option target="MatamHW4"/>
+		</Unit>
 		<Unit filename="/Users/yasminheni/ex4/MatamHW4/MatamStory.cpp">
 			<Option target="MatamHW4"/>
 		</Unit>
 		<Unit filename="/Users/yasminheni/ex4/MatamHW4/MatamStory.h">
-			<Option target="MatamHW4"/>
-		</Unit>
-		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Monsters/Monster.cpp">
-			<Option target="MatamHW4"/>
-		</Unit>
-		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Monsters/Monster.h">
 			<Option target="MatamHW4"/>
 		</Unit>
 		<Unit filename="/Users/yasminheni/ex4/MatamHW4/Players/Archer.cpp">

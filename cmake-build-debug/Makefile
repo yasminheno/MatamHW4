@@ -201,30 +201,6 @@ MatamStory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/MatamStory.cpp.s
 .PHONY : MatamStory.cpp.s
 
-Monsters/Monster.o: Monsters/Monster.cpp.o
-.PHONY : Monsters/Monster.o
-
-# target to build an object file
-Monsters/Monster.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o
-.PHONY : Monsters/Monster.cpp.o
-
-Monsters/Monster.i: Monsters/Monster.cpp.i
-.PHONY : Monsters/Monster.i
-
-# target to preprocess a source file
-Monsters/Monster.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.i
-.PHONY : Monsters/Monster.cpp.i
-
-Monsters/Monster.s: Monsters/Monster.cpp.s
-.PHONY : Monsters/Monster.s
-
-# target to generate assembly for a file
-Monsters/Monster.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MatamHW4.dir/build.make CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.s
-.PHONY : Monsters/Monster.cpp.s
-
 Players/Archer.o: Players/Archer.cpp.o
 .PHONY : Players/Archer.o
 
@@ -411,9 +387,6 @@ help:
 	@echo "... MatamStory.o"
 	@echo "... MatamStory.i"
 	@echo "... MatamStory.s"
-	@echo "... Monsters/Monster.o"
-	@echo "... Monsters/Monster.i"
-	@echo "... Monsters/Monster.s"
 	@echo "... Players/Archer.o"
 	@echo "... Players/Archer.i"
 	@echo "... Players/Archer.s"

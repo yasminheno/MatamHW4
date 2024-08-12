@@ -5,8 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/MatamHW4.dir/Events/Monster.cpp.o.d"
   "CMakeFiles/MatamHW4.dir/MatamStory.cpp.o"
   "CMakeFiles/MatamHW4.dir/MatamStory.cpp.o.d"
-  "CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o"
-  "CMakeFiles/MatamHW4.dir/Monsters/Monster.cpp.o.d"
   "CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o"
   "CMakeFiles/MatamHW4.dir/Players/Archer.cpp.o.d"
   "CMakeFiles/MatamHW4.dir/Players/Character.cpp.o"
