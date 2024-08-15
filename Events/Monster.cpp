@@ -1,5 +1,5 @@
 #include "Monster.h"
-
+#include <iostream>
 #include "Utilities.h"
 #include "string"
 #include <utility>
@@ -176,5 +176,27 @@ void Pack::addMember(unique_ptr<Monster> monster) {
 
 
 
+void Pack::increaseBalrogPower() {
+    int additionalPower = 0;
+
+    for (auto& member : members) {
+        if (member->getName() == "Balrog") {
+            int currentPower = member->getCombatPower();
+            member->setCombatPower(currentPower + 2);
+            additionalPower += 2;
+        }
+        Pack* subPack = dynamic_cast<Pack*>(member.get());
+        if (subPack) {
+            int subPackPowerBefore = subPack->getCombatPower();
+            subPack->increaseBalrogPower();  // Recurse into the nested Pack
+            int subPackPowerAfter = subPack->getCombatPower();
+            additionalPower += (subPackPowerAfter - subPackPowerBefore);
+            // Accumulate the power increase from the subPack
+        }
+    }
+
+    // Increase this Pack's combat power by the total additional power
+    this->setCombatPower(this->getCombatPower() + additionalPower);
+}
 
 

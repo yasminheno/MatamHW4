@@ -48,7 +48,8 @@ private:
     bool checkIfStop(Player& player) const;
 
     void add_Pack(std::istream& eventsStream);
-    void processPack(std::istream& eventsStream, Pack& pack);
+   void add_Pack(std::istream& eventsStream, std::vector<std::unique_ptr<Monster>>& members);
+
 
 public:
     /**

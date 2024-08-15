@@ -2,6 +2,7 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include "Player.h"
 using std::vector;
 using std::shared_ptr;
 using std::unique_ptr;
@@ -38,6 +39,7 @@ public:
     virtual int getDamage() const;
     virtual int getLoot() const;
     virtual ~Monster() = default;
+
 
 
 
@@ -79,12 +81,14 @@ public:
     int getDamage() const override;
     int getLoot() const override;
 
+
 };
 
 
 class Pack : public Monster{
 private:
     vector<unique_ptr<Monster>> members;
+
 
 
 public:
@@ -97,7 +101,11 @@ public:
     int getCombatPower() const override;
     int getDamage() const override;
     int getLoot() const override;
+    void increaseBalrogPower();
 
+    const vector<unique_ptr<Monster>>& getMembers() const {
+        return members;
+    }
 };
 
 

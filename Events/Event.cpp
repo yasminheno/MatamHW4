@@ -64,38 +64,41 @@ Encounter::Encounter(unique_ptr<Monster> monster) : Event("Encounter"),
 
 
 string Encounter::getDescription() const {
-        if (!monster) {
-            throw std::runtime_error("Monster is null");
-        }
+    if (!monster) {
+        throw std::runtime_error("Monster is null");
+    }
 
-        if (monster->getName() != "Pack") {
-            return monster->getName() + " (power " + (std::to_string(monster->getCombatPower())) +
-                   +", loot " + std::to_string(monster->getLoot()) +
-                   ", damage " + std::to_string(monster->getDamage()) + ")";
-        }
-        const Pack &pack = static_cast<const Pack &>(*monster);
-        size_t size = pack.getSize();
+    if (monster->getName() != "Pack") {
+        return monster->getName() + " (power " + (std::to_string(monster->getCombatPower())) +
+               +", loot " + std::to_string(monster->getLoot()) +
+               ", damage " + std::to_string(monster->getDamage()) + ")";
+    }
+    const Pack* pack = dynamic_cast<const Pack*>(monster.get());
 
-        return pack.getName() + " of " + std::to_string(size) + " members" +
-               " (power " + std::to_string(pack.getCombatPower()) +
-               ", loot " + std::to_string(pack.getLoot()) +
-               ", damage " + std::to_string(pack.getDamage()) + ")";
+    size_t size = pack->getSize();
+    return pack->getName() + " of " + std::to_string(size) + " members" +
+           " (power " + std::to_string(pack->getCombatPower()) +
+           ", loot " + std::to_string(pack->getLoot()) +
+           ", damage " + std::to_string(pack->getDamage()) + ")";
 }
 
 void Encounter::applyEvent(Player &player) const {
-    if(player.getJob_ptr()->getCombatPower(player) > monster->getCombatPower()) {
+    if (player.getJob_ptr()->getCombatPower(player) > monster->getCombatPower()) {
         player.levelUp();
         player.addCoins(monster->getLoot());
         player.checkOutCome(getEncounterWonMessage(player, monster->getLoot()));
-        if(player.getJobType() == "Warrior")
-        player.getJob_ptr()->Weaken(10,player);
+        if (player.getJobType() == "Warrior")
+            player.getJob_ptr()->Weaken(10, player);
     } else {
         player.decreaseCurrentHP(monster->getDamage());
-        player.checkOutCome(getEncounterLostMessage(player,monster->getDamage()));
+        player.checkOutCome(getEncounterLostMessage(player, monster->getDamage()));
 
     }
-    if(monster->getName() == "Balrog")
-    {
-        monster->setCombatPower(monster->getCombatPower() + 2);
+    if (Balrog* balrog = dynamic_cast<Balrog*>(monster.get())) {
+        balrog->setCombatPower(balrog->getCombatPower() + 2);
     }
+
+    if (Pack* pack = dynamic_cast<Pack*>(monster.get())) {
+            pack->increaseBalrogPower();
+        }
 }
