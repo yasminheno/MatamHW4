@@ -184,7 +184,7 @@ bool checkName(string& name)
         return false;
     }
 
-    for (int i = 0 ; i < name.length() ; i++) {
+    for (std::size_t i = 0 ; i < name.length() ; i++) {
         if (!((name[i] >= 'A' && name[i] <= 'Z') || (name[i] >= 'a' && name[i] <= 'z'))) {
             return false;
         }
